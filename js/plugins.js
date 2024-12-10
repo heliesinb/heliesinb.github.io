@@ -35,6 +35,10 @@ Fluid.plugins = {
 
     jQuery(selector || '.markdown-body :not(a) > img, .markdown-body > img').each(function() {
       var $image = jQuery(this);
+        if ($image.closest('.no-fancybox').length > 0) {
+            return;
+        }
+
       var imageUrl = $image.attr('data-src') || $image.attr('src') || '';
       if (CONFIG.image_zoom.img_url_replace) {
         var rep = CONFIG.image_zoom.img_url_replace;
@@ -162,3 +166,18 @@ Fluid.plugins = {
     });
   }
 };
+
+
+/* Sidebar */
+var toggleSidebar = function(){
+  $("#sidebar").toggleClass('sidebar-hide');
+  $("#toggle-sidebar").toggleClass('sidebar-button-shift');
+}
+var hideSidebar = function(){
+  $("#sidebar").addClass('sidebar-hide');
+  $("#toggle-sidebar").addClass('sidebar-button-shift');
+}
+$("#toggle-sidebar").on("click",toggleSidebar);
+$("header").on("click",hideSidebar);
+$("main").on("click",hideSidebar);
+$(".footer-inner").on("click",hideSidebar);
