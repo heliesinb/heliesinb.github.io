@@ -4,7 +4,7 @@
   
   
   <entry>
-    <title>post title</title>
+    <title>第一篇文章</title>
     <link href="/2024/12/09/post-title/"/>
     <url>/2024/12/09/post-title/</url>
     
@@ -12,12 +12,18 @@
     
     
     
+    <tags>
+      
+      <tag>第一篇文章</tag>
+      
+    </tags>
+    
   </entry>
   
   
   
   <entry>
-    <title>Hello World</title>
+    <title>Hexo 使用指南</title>
     <link href="/2024/12/09/hello-world/"/>
     <url>/2024/12/09/hello-world/</url>
     
