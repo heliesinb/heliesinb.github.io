@@ -1,6 +1,6 @@
-var backgroundImageUrls = [
-    "https://img.xjh.me/random_img.php",
-    "https://www.dmoe.cc" //     樱花：https://www.dmoe.cc
+// var backgroundImageUrls = [
+    // "https://img.xjh.me/random_img.php",
+    // "https://www.dmoe.cc" //     樱花：https://www.dmoe.cc
 
 //   夏沫：https://cdn.seovx.com
 //   搏天：https://api.btstu.cn/doc/sjbz.php
@@ -16,8 +16,9 @@ var backgroundImageUrls = [
 
     // "url('/2023/09/12/2.jpg')",
     // "url('/2023/09/12/3.jpg')"
-  ];
-  
+//   ];
+var backgroundImageUrls =  "https://img.xjh.me/random_img.php";
+
   var randomIndex = Math.floor(Math.random() * backgroundImageUrls.length);
   var bodyElement = document.querySelector("body");
   bodyElement.style.backgroundImage = backgroundImageUrls[randomIndex];
