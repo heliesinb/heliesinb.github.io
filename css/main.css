@@ -22,6 +22,13 @@ h6:hover > .anchorjs-link {
   height: 100%;
   background-color: rgba(0,0,0,0.3);
 }
+.banner .real_mask {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  z-index: -777;
+}
 .banner[parallax="true"] {
   will-change: transform;
   -webkit-transform-style: preserve-3d;

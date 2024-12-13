@@ -221,12 +221,12 @@ html {
   }
   
   
-   body { 
-      background-color: var(--navbar-bg-color); 
+   /* body {  */
+      /* background-color: var(--navbar-bg-color); 
       background: url("https://hefollo.com/apis.php?type=电脑端-动漫图片");
       background-attachment: fixed;
       background-size: cover; 
-  } 
+  }  */
   
   /* body {
       background-image: url(https://imgsrc.baidu.com/forum/pic/item/4d086e061d950a7b2d5dd7f24cd162d9f2d3c998.gif);
