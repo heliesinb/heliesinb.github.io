@@ -259,7 +259,7 @@ updateJsFiles();
 //网站运行统计
 !(function() {
   /** 计时起始时间 **/
-  var start = new Date("2023/08/25 00:00:00");
+  var start = new Date("2024/12/1 00:00:00");
 
   function update() {
     var now = new Date();
