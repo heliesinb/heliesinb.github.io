@@ -283,7 +283,7 @@ html {
         50% { background-position: 100% 50%; }
         100% { background-position: 0% 50%; }
       }
-  
+
   /*底部一言*/
   #hitokoto {
     width: 200px;
@@ -984,5 +984,5 @@ html {
     content: "\e95a";
   }
   
-  
+
   
