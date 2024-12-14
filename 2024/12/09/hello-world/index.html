@@ -12,8 +12,8 @@
 <head>
   <meta charset="UTF-8">
 
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -82,6 +82,7 @@
 <link rel="stylesheet" href="/css/calchome.css">
 <link rel="stylesheet" href="/calculator/index.css">
 <link rel="stylesheet" href="/js/customize/aplayer/APlayer.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
 
 
 
@@ -114,6 +115,7 @@
 
 
 <body><!-- hexo injector body_begin start --><div id="web_bg"></div><!-- hexo injector body_begin end -->
+  <!-- 视频背景插入 -->
   <div id="banner_video_insert">
 	</div>	
 	<div>
@@ -123,7 +125,6 @@
 		<div id='vvd_banner_img'>
 		</div>
 	</div>
-
 
   <div id="Loadanimation" style="z-index:999999;">
     <div id="Loadanimation-center">
@@ -444,6 +445,8 @@
   </header>
 
   <main>
+ 
+
     
       
 
@@ -747,7 +750,7 @@
     
       <div class="col-lg-7 mx-auto nopadding-x-md">
         <div class="container custom mx-auto">
-           <link rel="stylesheet" href="/js/customize/aplayer/APlayer.min.css"> <div id="aplayer"></div> <script type="text/javascript" src="/js/customize/aplayer/APlayer.min.js"></script> <script type="text/javascript" src="/js/customize/aplayer/music.js"></script> 
+           <!-- require APlayer --> <!--<link rel="stylesheet" href="/js/customize/aplayer/APlayer.min.css">--> <!--<div id="aplayer"></div>--> <!--<script type="text/javascript" src="/js/customize/aplayer/APlayer.min.js"></script>--> <!--<script type="text/javascript" src="/js/customize/aplayer/music.js"></script>--> <!-- require MetingJS --> <!--<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>--> <!--<meting-js--> <!--  auto="https://y.qq.com/n/yqq/song/001RGrEX3ija5X.html">  --> <!--server = "netease"--> <!--type = "playlist"--> <!--id = "5349753401">--> <!--</meting-js>--> 
         </div>
       </div>
     
@@ -793,6 +796,22 @@
   
   
 </div>
+
+<!-- 页脚繁体简体切换 -->
+<div class="translate-style">
+  繁/简：<a id="translateLink" href="javascript:translatePage();">繁体
+  </a>
+  </div>
+  <script type="text/javascript" src="/js/tw_cn.js"></script>
+  <script type="text/javascript">
+  var defaultEncoding = 2; //网站编写字体是否繁体，1-繁体，2-简体
+  var translateDelay = 0; //延迟时间,若不在前, 要设定延迟翻译时间, 如100表示100ms,默认为0
+  var cookieDomain = "https://1han.wiki/"; //Cookie地址, 一定要设定, 通常为你的网址
+  var msgToTraditionalChinese = "繁体"; //此处可以更改为你想要显示的文字
+  var msgToSimplifiedChinese = "简体"; //同上，但两处均不建议更改
+  var translateButtonId = "translateLink"; //默认互换id
+  translateInitilization();
+  </script>
 
   </footer>
 
@@ -956,6 +975,8 @@
 <script src="/js/customize/aplayer/APlayer.min.js"></script>
 <script src="/js/customize/Meting.js"></script>
 <script src="/js/customize/music.js"></script>
+<script src="//cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script>
 
 
 
