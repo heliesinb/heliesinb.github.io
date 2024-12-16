@@ -25,25 +25,25 @@
   <meta name="author" content="Helios">
   <meta name="keywords" content="">
   
-    <meta name="description" content="博客介绍分享一些做过和正在做的项目，文章等；正文">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于">
-<meta property="og:url" content="http://example.com/about/index.html">
+    <meta name="description" content="Selenium的CSS层叠样式表选择器（一） 实验目的：了解在selenium中可以通过CSS Selector选择界面元素，重点掌握通过选择器根据id、class 、tag这三个常用属性选择元素的语法，以及通过父子元素进行选择的方法。了解CSS 选择器支持的通过任何属性来选择元素的用法。 实验要求：在pycharm 环境下完成实验目的中所述各项任务  实验条件：win7&#x2F;10、pyc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Selenium的CSS层叠样式表选择器（一）">
+<meta property="og:url" content="http://example.com/2024/12/15/selenium/selenium02/index.html">
 <meta property="og:site_name" content="Helios&#39;blog">
-<meta property="og:description" content="博客介绍分享一些做过和正在做的项目，文章等；正文">
+<meta property="og:description" content="Selenium的CSS层叠样式表选择器（一） 实验目的：了解在selenium中可以通过CSS Selector选择界面元素，重点掌握通过选择器根据id、class 、tag这三个常用属性选择元素的语法，以及通过父子元素进行选择的方法。了解CSS 选择器支持的通过任何属性来选择元素的用法。 实验要求：在pycharm 环境下完成实验目的中所述各项任务  实验条件：win7&#x2F;10、pyc">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/1.jpg">
-<meta property="article:published_time" content="2024-12-10T07:57:29.000Z">
-<meta property="article:modified_time" content="2024-12-15T07:13:53.973Z">
+<meta property="og:image" content="http://example.com/img/selenium.png">
+<meta property="article:published_time" content="2024-12-15T08:31:01.603Z">
+<meta property="article:modified_time" content="2024-12-15T10:55:44.468Z">
 <meta property="article:author" content="Helios">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/1.jpg">
+<meta name="twitter:image" content="http://example.com/img/selenium.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>关于 - Helios&#39;blog</title>
+  <title>Selenium的CSS层叠样式表选择器（一） - Helios&#39;blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -141,7 +141,7 @@
   <header>
     
 
-<div class="header-inner" style="height: 60vh;">
+<div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -408,9 +408,60 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="关于"></span>
+            <span id="subtitle" data-typed-text="Selenium的CSS层叠样式表选择器（一）"></span>
           
         </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-12-15 16:31" pubdate>
+          星期日, 十二月 15日 2024, 4:31 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          1.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          15 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
 
         
       </div>
@@ -429,111 +480,236 @@
  
 
     
-      <div class="container nopadding-x-md">
-        <div id="board"
-          >
-          
-            <div class="about-avatar">
-              <img src="/img/avatar.jpg" srcset="/img/loading.gif" lazyload class="img-fluid" alt="avatar">
-            </div>
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+      
 
-<div class="text-center">
-  <div class="about-info">
-    <div class="about-name">Helios</div>
-    <div class="about-intro">Code爱好者 动漫 Music</div>
-    <div class="about-icons">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
       
-        
-        
-        
-        <a href=https://github.com/heliesinb class="
-           hint--bottom hint--rounded"
-           aria-label="GitHub"
-           target="_blank"
-        >
-          <i class="iconfont icon-github-fill" aria-hidden="true"></i>
-          
-        </a>
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Selenium的CSS层叠样式表选择器（一）</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p><strong>Selenium的CSS层叠样式表选择器（一）</strong></p>
+<p><strong>实验目的：</strong>了解在selenium中可以通过CSS Selector选择界面元素，重点掌握通过选择器根据id、class 、tag这三个常用属性选择元素的语法，以及通过父子元素进行选择的方法。了解CSS 选择器支持的通过任何属性来选择元素的用法。</p>
+<p><strong>实验要求：</strong>在pycharm 环境下完成实验目的中所述各项任务 </p>
+<p><strong>实验条件：</strong>win7&#x2F;10、pycharm、selenium4.4.0 </p>
+<p><strong>实验内容及步骤：</strong></p>
+<p>HTML中经常要为某些元素指定显示效果，比如：前景文字颜色是红色，背景颜色是黑色，字体是微软雅黑等。用来表现HTML样式的计算机语言就是CSS(Cascading Style Sheets)层叠样式表。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。于是，在执行WEB界面自动化测试开发时，除了前面讲的直接使用id、class属性、tag名来选择元素外，Selenium还专门提供了CSS Selector语法选择元素。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find_element(By.CSS_SELECTOR, CSS Selector参数)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find_elements(By.CSS_SELECTOR, CSS Selector参数)</span><br></pre></td></tr></table></figure>
+
+<p>一、 根据tag名选择元素的语法：直接写tag名</p>
+<p>如果要选择所有的tag名为div的元素，则应写为： </p>
+<p><code>find_element(By.CSS_SELECTOR, &#39;div&#39;)</code></p>
+<p>等价于  <code>find_element(By.TAG_NAME, &#39;div&#39;)</code></p>
+<p>二、 根据id属性选择元素的语法：在id号前面加上一个#号（#id值）</p>
+<p>例如：一个输入框的Html元素定义如下：</p>
+<input id="kw" name="wd" class="s_ipt" value maxlength="255" autocomplete="off">
+
+<p>想要根据id属性选择这个输入框，则应写为：</p>
+<p><code>find_element(By.CSS_SELECTOR, &#39;#kw&#39;)</code></p>
+<p>等价于  <code>find_element(By.ID, &#39;kw&#39;)</code></p>
+<p>三、 根据class属性选择元素的语法：在class值前面加上一个点（.class值）</p>
+<p>想要根据class属性选择上面的输入框，则应写为：</p>
+<p><code>find_element(By.CSS_SELECTOR, &#39;.s_ipt&#39;)</code></p>
+<p>等价于  <code>find_element(By.CLASS_NAME, &#39;s_ipt&#39;)</code></p>
+<p>四、 通过父子元素选择</p>
+<p>HTML中，元素内部可以包含其他元素，具有层级关系。</p>
+<p>如果元素2是元素1的直接子元素，要选择元素2时， CSS Selector 选择子元素的语法是：元素1 &gt;元素2（中间用大于号可理解为箭头）。</p>
+<p>也支持更多层级的选择： 元素1 &gt;元素2 &gt;元素3 &gt;元素4 （选择的是元素4 ）</p>
+<p>如果元素2是元素1的后代元素，要选择元素2时， CSS Selector 选择后代元素的语法是：  <code>元素1   元素2</code>（中间是一个或者多个空格隔开），同样支持更多层级的选择：</p>
+<p><code>元素1   元素2   元素3   元素4</code></p>
+<p>五、 通过任何属性来选择元素</p>
+<p>语法是用一个方括号 [ ] 括起属性及取值，外部用单引号或双引号都可以，但要与方括号内部的引号区分开，多个属性时用多个 [ ] 连接在一起。</p>
+<p>例如：一个超链接的Html元素定义如下：</p>
+<p><a target="_blank" rel="noopener" href="http://www.miitbeian.gov.cn">苏ICP备88885574号</a></p>
+<p>想要利用href属性来选择a元素，应写为：</p>
+<p><code>find_element(By.CSS_SELECTOR, &#39;[href]&#39;)</code></p>
+<p>也可通过选择属性href值等于 <a target="_blank" rel="noopener" href="http://www.miitbeian.gov.cn/">http://www.miitbeian.gov.cn</a> 找到与上面相同的元素，具体写作：  <code>find_element(By.CSS_SELECTOR, &#39;[href=&quot;http://www.miitbeian.gov.cn&quot;]&#39;)</code></p>
+<p>CSS Selector可以选择属性值包含某个字符串的元素：语法（*&#x3D;）</p>
+<p>选择上面的超链接元素可写为：<code>find_element(By.CSS_SELECTOR, &#39;[href*=&quot;miitbeian&quot;]&#39;)</code></p>
+<p>CSS Selector可以选择属性值以某个字符串开头的元素：语法（^&#x3D;）</p>
+<p>选择上面的超链接元素可写为：<code>find_element(By.CSS_SELECTOR, &#39;[href^=&quot;http&quot;]&#39;)</code></p>
+<p>CSS Selector可以选择属性值以某个字符串结尾的元素：语法（$&#x3D;）</p>
+<p>选择上面的超链接元素可写为：<code>find_element(By.CSS_SELECTOR, &#39;[href$=&quot;gov.cn&quot;]&#39;)</code></p>
+<p>CSS Selector指定选择的元素要同时具有多个属性的限制时，要将属性连在一起写。</p>
+<p>例如：某Html元素定义为：<code>&lt;div class=&quot;misc&quot; ctype=&quot;gun&quot;&gt;沙漠之鹰&lt;/div&gt;</code></p>
+<p>想要选择此元素应写为：</p>
+<p><code>find_element(By.CSS_SELECTOR, &#39;div[class=&quot;misc&quot;][ctype=&quot;gun&quot;]&#39;)</code></p>
+<p>注意多个属性之间不能加空格，否则就变成了父子关系。</p>
+<p>六、 验证 CSS Selector 语法的正确性</p>
+<p>在python代码中使用print输出语句并运行，可以验证 CSS Selector 的语法是否正确选择了我们要选择的元素，但每次选择都进行这样的验证非常耗时。</p>
+<p>由于 CSS Selector 是浏览器直接支持的，一个简便的方法是：在浏览器开发者工具栏中进行验证。在开发者工具栏，点击 Elements 元素标签后，同时按 Ctrl 键 和 F 键，就会出现一个查询框，在其中输入任何 CSS Selector 表达式，如果能选择到元素，输入框右边会显示出类似 1 of 1 （第几个of共选择到几个）这样的内容，且选中的元素高亮显示。若选择到的元素有多个，第一个被高亮显示。</p>
+<p>同学们可以使用这个方法，加速编程。同时在熟练应用后，努力做到编写的CSS Selector 表达式简洁且选中的元素唯一。</p>
+<p> 练习1：要求如下</p>
+<p>在<a target="_blank" rel="noopener" href="https://cdn2.byhy.net/files/selenium/sample1.html">https://cdn2.byhy.net/files/selenium/sample1.html</a> 网页中，使用CSS Selector ;</p>
+<p>①根据tag名选择此页中的输入框并输入“查看完毕！”，</p>
+<p>②根据id属性选择此页面底部的版权信息并输出，</p>
+<p>③选择此页中所有class属性值为plant的元素并依次输出。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># import time</span></span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.by <span class="keyword">import</span> By</span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line"></span><br><span class="line">driver.get(<span class="string">&quot;https://cdn2.byhy.net/files/selenium/sample1.html&quot;</span>)</span><br><span class="line">searchtext = driver.find_element(By.CSS_SELECTOR, <span class="string">&#x27;#searchtext&#x27;</span>)</span><br><span class="line">searchtext.send_keys(<span class="string">&#x27;查看完毕!&#x27;</span>)</span><br><span class="line"><span class="comment"># time.sleep(2)</span></span><br><span class="line">copyright = driver.find_element(By.CSS_SELECTOR, <span class="string">&#x27;.copyright&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(copyright.text)</span><br><span class="line">date = driver.find_element(By.CSS_SELECTOR, <span class="string">&#x27;.date&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(date.text)</span><br><span class="line">banben = driver.find_element(By.CSS_SELECTOR, <span class="string">&#x27;#bottom &gt; div.footer2 &gt; span&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(banben.text)</span><br><span class="line">elements = driver.find_elements(By.CSS_SELECTOR,<span class="string">&#x27;.plant&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> element <span class="keyword">in</span> elements:</span><br><span class="line">    <span class="built_in">print</span>(element.text)</span><br></pre></td></tr></table></figure>
+
+<p> 练习2：要求如下</p>
+<p>打开2345天气王网站<a target="_blank" rel="noopener" href="https://tianqi.2345.com/%EF%BC%8C%E8%8E%B7%E5%8F%96%E7%BD%91%E9%A1%B5%E4%B8%AD%E5%BD%93%E5%89%8D%E5%9F%8E%E5%B8%82%E5%90%8D%E7%A7%B0%EF%BC%8C%E6%9F%A5%E7%9C%8B%E4%BB%8A%E5%A4%A9%E4%BB%A5%E5%8F%8A%E4%B9%8B%E5%90%8E%E4%B8%80%E5%91%A8%E5%86%85%E7%9A%84%E5%A4%A9%E6%B0%94%E6%83%85%E5%86%B5%EF%BC%8C%E8%BE%93%E5%87%BA%E5%BD%93%E5%89%8D%E5%9F%8E%E5%B8%82%E4%B8%80%E5%91%A8%E5%86%85%E7%9A%84%E6%9C%80%E9%AB%98%E6%B0%94%E6%B8%A9%E5%92%8C%E6%9C%80%E4%BD%8E%E6%B0%94%E6%B8%A9%EF%BC%8C%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F%E4%B8%BA%EF%BC%9A">https://tianqi.2345.com/，获取网页中当前城市名称，查看今天以及之后一周内的天气情况，输出当前城市一周内的最高气温和最低气温，输出格式为：</a></p>
+<p><code>AAA（当前城市名称）一周内最高气温为XX摄氏度，最低气温为YY摄氏度。</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.by <span class="keyword">import</span> By</span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line">driver.get(<span class="string">&quot;https://tianqi.2345.com/&quot;</span>)</span><br><span class="line">didian = driver.find_element(By.CSS_SELECTOR,<span class="string">&#x27;body &gt; div.banner &gt; div.w1200.clearfix &gt; div &gt; div.banner-city &gt; div &gt; a:nth-child(1) &gt; span&#x27;</span>)</span><br><span class="line">time.sleep(<span class="number">2</span>)</span><br><span class="line"><span class="built_in">print</span>(didian.text)</span><br><span class="line"></span><br><span class="line">weather_list = driver.find_elements(By.CSS_SELECTOR, <span class="string">&#x27;.banner-right-con-list-temp&#x27;</span>)</span><br><span class="line">arr1 = []</span><br><span class="line"><span class="keyword">for</span> element <span class="keyword">in</span> weather_list:</span><br><span class="line">    <span class="comment"># print(element.text)</span></span><br><span class="line">    element1 = re.sub(<span class="string">&#x27;([^\u0030-\u0039\&#x27;-])&#x27;</span>, <span class="string">&#x27; &#x27;</span>, element.text)</span><br><span class="line">    element3 = element1.rstrip()</span><br><span class="line">    <span class="comment"># print(element1)</span></span><br><span class="line">    str_list = element3.split(<span class="string">&quot; &quot;</span>)</span><br><span class="line">    <span class="keyword">for</span> arr3 <span class="keyword">in</span> str_list:</span><br><span class="line">        arr1.append(arr3)</span><br><span class="line">arr2 = <span class="built_in">map</span>(<span class="built_in">int</span>, arr1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取最高气温和最低气温</span></span><br><span class="line">high_temps = []</span><br><span class="line">low_temps = []</span><br><span class="line"><span class="keyword">for</span> element2 <span class="keyword">in</span> arr2:</span><br><span class="line">    high_temps.append(element2)</span><br><span class="line">    low_temps.append(element2)</span><br><span class="line">    <span class="comment"># print(element2)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出结果</span></span><br><span class="line">max_temp = <span class="built_in">max</span>(high_temps)</span><br><span class="line">min_temp = <span class="built_in">min</span>(low_temps)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;didian.text&#125;</span>一周内最高气温为<span class="subst">&#123;max_temp&#125;</span>摄氏度，最低气温为<span class="subst">&#123;min_temp&#125;</span>摄氏度。&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+                
+              </div>
+            
+            <hr/>
+
+
+            <!-- 添加打赏模块 -->
+            <div class="reward-container">
+              
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
       
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
         
-        
-        
-        <a href=https://douban.com class="
-           hint--bottom hint--rounded"
-           aria-label="豆瓣"
-           target="_blank"
-        >
-          <i class="iconfont icon-douban-fill" aria-hidden="true"></i>
-          
-        </a>
+  <a href="/categories/selenium/" class="category-chain-item">selenium</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Selenium的CSS层叠样式表选择器（一）</div>
+      <div>http://example.com/2024/12/15/selenium/selenium02/</div>
+    </div>
+    <div class="license-meta">
       
-        
-        
-        
-        <a href=https://www.youtube.com/ class="
-           hint--bottom hint--rounded"
-           aria-label="油管"
-           target="_blank"
-        >
-          <i class="iconfont icon-youtube-fill" aria-hidden="true"></i>
-          
-        </a>
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Helios</div>
+        </div>
       
-        
-        
-        
-        <a href=https://instagram.com/@heliesinb class="
-           hint--bottom hint--rounded"
-           aria-label="Instagram"
-           target="_blank"
-        >
-          <i class="iconfont icon-instagram-fill" aria-hidden="true"></i>
-          
-        </a>
       
-        
-        
-        
-        <a href=https://discord.com/heliesinb class="
-           hint--bottom hint--rounded"
-           aria-label="Discord"
-           target="_blank"
-        >
-          <i class="iconfont icon-discord-fill" aria-hidden="true"></i>
-          
-        </a>
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年12月15日</div>
+        </div>
       
-        
-        
-        
-        <a  class="qr-trigger
-           "
-           
-           target="_self"
-        >
-          <i class="iconfont icon-wechat-fill" aria-hidden="true"></i>
-          
-            <img class="qr-img" src="/img/favicon.png" srcset="/img/loading.gif" lazyload alt="qrcode" />
-          
-        </a>
       
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/12/15/selenium/selenium03/" title="Selenium的CSS层叠样式表选择器（二）">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Selenium的CSS层叠样式表选择器（二）</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/12/15/selenium/selenium00/" title="初识Selenium和设置被测系统">
+                        <span class="hidden-mobile">初识Selenium和设置被测系统</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
     </div>
   </div>
 </div>
 
-<article class="about-content page-content mt-5">
-  <div class="markdown-body">
-    <h1 id="博客介绍"><a href="#博客介绍" class="headerlink" title="博客介绍"></a>博客介绍</h1><h5 id="分享一些做过和正在做的项目，文章等；"><a href="#分享一些做过和正在做的项目，文章等；" class="headerlink" title="分享一些做过和正在做的项目，文章等；"></a>分享一些做过和正在做的项目，文章等；</h5><h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3>
-  </div>
-
-  
-</article>
-
 
 
 
@@ -549,6 +725,20 @@
 
   
 
+  <script  src="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script type="text/javascript">
+  /* Fancybox */
+  var setupFancybox = function () {
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(function() {
+    var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      $(this).wrap(element);
+    });
+  };
+  setupFancybox();
+  </script>
+
 
 
 
@@ -558,11 +748,8 @@
 
 
 
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
+
     
 
     
@@ -689,6 +876,46 @@
 
 
 
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
   <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
@@ -743,6 +970,8 @@
   <script>Fluid.plugins.imageCaption();</script>
 
   <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
@@ -829,7 +1058,7 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
-<!-- hexo injector body_end start -->
+<!-- hexo injector body_end start --><script src="/js/customize/postshixiaoxing.js"></script><script src="/js/customize/zdy.js"></script>
   <div id="aplayer"></div>
   <link defer rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css" />
   <script src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js"></script>

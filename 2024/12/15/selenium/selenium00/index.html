@@ -25,26 +25,25 @@
   <meta name="author" content="Helios">
   <meta name="keywords" content="">
   
-    <meta name="description" content="标题一标题二标题三标题四标题五这是加粗 这是斜体  无序列表   有序列表  内嵌代码 1代码块  引用">
+    <meta name="description" content="初识Selenium和设置被测系统实验目的：了解Web功能测试的基本操作过程，掌握按照运行selenium的方法，能在PyCharm环境下使用selenium操纵浏览器执行简单操作，安装并熟悉被测系统软件. 实验要求：在pycharm 环境下完成实验目的中所述各项任务 . 实验条件：win10、pycharm、selenium4.4.0  实验内容及步骤： Selenium是一个用于Web应用程序">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第一篇文章">
-<meta property="og:url" content="http://example.com/2024/12/09/post-title/index.html">
+<meta property="og:title" content="初识Selenium和设置被测系统">
+<meta property="og:url" content="http://example.com/2024/12/15/selenium/selenium00/index.html">
 <meta property="og:site_name" content="Helios&#39;blog">
-<meta property="og:description" content="标题一标题二标题三标题四标题五这是加粗 这是斜体  无序列表   有序列表  内嵌代码 1代码块  引用">
+<meta property="og:description" content="初识Selenium和设置被测系统实验目的：了解Web功能测试的基本操作过程，掌握按照运行selenium的方法，能在PyCharm环境下使用selenium操纵浏览器执行简单操作，安装并熟悉被测系统软件. 实验要求：在pycharm 环境下完成实验目的中所述各项任务 . 实验条件：win10、pycharm、selenium4.4.0  实验内容及步骤： Selenium是一个用于Web应用程序">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/1.jpg">
-<meta property="article:published_time" content="2024-12-09T13:36:46.000Z">
-<meta property="article:modified_time" content="2024-12-13T02:09:51.490Z">
+<meta property="og:image" content="http://example.com/img/selenium.png">
+<meta property="article:published_time" content="2024-12-15T07:39:24.305Z">
+<meta property="article:modified_time" content="2024-12-15T10:54:31.373Z">
 <meta property="article:author" content="Helios">
-<meta property="article:tag" content="第一篇文章">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/1.jpg">
+<meta name="twitter:image" content="http://example.com/img/selenium.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>第一篇文章 - Helios&#39;blog</title>
+  <title>初识Selenium和设置被测系统 - Helios&#39;blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -77,13 +76,13 @@
 <link rel="stylesheet" href="/css/custom.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/shubiao.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/gradient.css">
-<link rel="stylesheet" href="/css/cloudedGlass.css">
 <link rel="stylesheet" href="/css/right_menu.css">
 <link rel="stylesheet" href="/css/loading.css">
 <link rel="stylesheet" href="/css/calchome.css">
 <link rel="stylesheet" href="/calculator/index.css">
 <link rel="stylesheet" href="/js/customize/aplayer/APlayer.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<link rel="stylesheet" href="/js/customize/code/prism.css">
 
 
 
@@ -95,7 +94,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"python"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -219,7 +218,7 @@
               <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="iconfont icon-books"></i>
-                <span>文档</span>
+                <span>主题文档</span>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 
@@ -279,23 +278,39 @@
           
           
           
-            <li class="nav-item">
-              <a class="nav-link" href="/links/" target="_self">
-                <i class="iconfont icon-link-fill"></i>
-                <span>友链</span>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-momo"></i>
+                <span>社交</span>
               </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
-                <i class="iconfont icon-user-fill"></i>
-                <span>关于</span>
-              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/links/" target="_self">
+                    <i class="iconfont icon-link-fill"></i>
+                    <span>友链</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/about/" target="_self">
+                    <i class="iconfont icon-user-fill"></i>
+                    <span>关于</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/messagebd/" target="_self">
+                    <i class="iconfont icon-comment"></i>
+                    <span>留言板</span>
+                  </a>
+                
+              </div>
             </li>
           
         
@@ -393,7 +408,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="第一篇文章"></span>
+            <span id="subtitle" data-typed-text="初识Selenium和设置被测系统"></span>
           
         </div>
 
@@ -404,8 +419,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-12-09 21:36" pubdate>
-          星期一, 十二月 9日 2024, 9:36 晚上
+        <time datetime="2024-12-15 15:39" pubdate>
+          星期日, 十二月 15日 2024, 3:39 下午
         </time>
       </span>
     
@@ -417,7 +432,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          41 字
+          912 字
         
       </span>
     
@@ -429,7 +444,7 @@
         
         
           <!-- compatible with older versions-->
-          1 分钟
+          8 分钟
         
       </span>
     
@@ -437,12 +452,12 @@
     
     
       
-        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <span id="busuanzi_container_page_pv" style="display: none">
           <i class="iconfont icon-eye" aria-hidden="true"></i>
-          <span id="leancloud-page-views"></span> 次
+          <span id="busuanzi_value_page_pv"></span> 次
         </span>
         
-      
+
       
     
   </div>
@@ -471,6 +486,19 @@
   <div class="row nomargin-x">
     <div class="side-col d-none d-lg-block col-lg-2">
       
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
 
     </div>
 
@@ -478,25 +506,66 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">第一篇文章</h1>
+            <h1 id="seo-header">初识Selenium和设置被测系统</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="标题一"><a href="#标题一" class="headerlink" title="标题一"></a>标题一</h1><h2 id="标题二"><a href="#标题二" class="headerlink" title="标题二"></a>标题二</h2><h3 id="标题三"><a href="#标题三" class="headerlink" title="标题三"></a>标题三</h3><h4 id="标题四"><a href="#标题四" class="headerlink" title="标题四"></a>标题四</h4><h5 id="标题五"><a href="#标题五" class="headerlink" title="标题五"></a>标题五</h5><p><strong>这是加粗</strong></p>
-<p><em>这是斜体</em></p>
-<ul>
-<li>无序列表</li>
-</ul>
+                <h2 id="初识Selenium和设置被测系统"><a href="#初识Selenium和设置被测系统" class="headerlink" title="初识Selenium和设置被测系统"></a><strong>初识Selenium和设置被测系统</strong></h2><p><strong>实验目的：</strong>了解Web功能测试的基本操作过程，掌握按照运行selenium的方法，能在PyCharm环境下使用selenium操纵浏览器执行简单操作，安装并熟悉被测系统软件.</p>
+<p><strong>实验要求：</strong>在pycharm 环境下完成实验目的中所述各项任务 .</p>
+<p><strong>实验条件：</strong>win10、pycharm、selenium4.4.0 </p>
+<p><strong>实验内容及步骤：</strong></p>
+<p>Selenium是一个用于Web<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/5985445?fromModule=lemma_inlink">应用程序</a>测试的工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。支持的浏览器包括<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/IE/69103?fromModule=lemma_inlink">IE</a>（7, 8, 9, 10, 11），[Mozilla Firefox](<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Mozilla">https://baike.baidu.com/item/Mozilla</a> Firefox&#x2F;3504923?fromModule&#x3D;lemma_inlink)，<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Safari/597?fromModule=lemma_inlink">Safari</a>，<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Google/86964?fromModule=lemma_inlink">Google</a> <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Chrome/5633839?fromModule=lemma_inlink">Chrome</a>，<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Opera/25140?fromModule=lemma_inlink">Opera</a>，<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Edge/16194485?fromModule=lemma_inlink">Edge</a>等。这个工具的主要功能包括：测试与浏览器的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%85%BC%E5%AE%B9%E6%80%A7/1446869?fromModule=lemma_inlink">兼容性</a>——测试应用程序看是否能够很好得工作在不同浏览器和操作系统之上。测试<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD/10394740?fromModule=lemma_inlink">系统功能</a>——创建回归测试检验软件功能和<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%94%A8%E6%88%B7%E9%9C%80%E6%B1%82/56497046?fromModule=lemma_inlink">用户需求</a>。支持自动录制动作和自动生成.Net、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Java/85979?fromModule=lemma_inlink">Java</a>、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Perl/851577?fromModule=lemma_inlink">Perl</a>等不同语言的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%B5%8B%E8%AF%95%E8%84%9A%E6%9C%AC/10921546?fromModule=lemma_inlink">测试脚本</a>。</p>
+<p>一、 Selenium环境配置步骤：</p>
 <ol>
-<li>有序列表</li>
+<li>正常配置Python环境 Pycharm</li>
+<li>安装selenium → 在Pycharm中新建一个虚拟项目，在Terminal中输入<code>pip install selenium==4.4.0</code> 实现selenium的安装，使用pip show selenium 验证安装是否成功。</li>
+<li>浏览器驱动的下载与配置 → 以谷歌浏览器为例：</li>
 </ol>
-<p><code>内嵌代码</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">代码块</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>引用</p>
-</blockquote>
+<p>下载谷歌浏览器： <a target="_blank" rel="noopener" href="https://www.google.cn/chrome/">https://www.google.cn/chrome/</a></p>
+<p>下载谷歌浏览器驱动： <a target="_blank" rel="noopener" href="https://chromedriver.storage.googleapis.com/index.html">https://chromedriver.storage.googleapis.com/index.html</a></p>
+<p>注意：下载的浏览器驱动一定要与浏览器版本号（最近似）匹配，记录浏览器驱动文件的存放地址（可以放到磁盘根目录中，方便在脚本中输入完整路径）。</p>
+<ol start="4">
+<li>在代码中import 对应的依赖</li>
+</ol>
+<p>二、 Selenium对浏览器的操控：</p>
+<ol>
+<li>在pycharm已建立的项目中新建一个webauto.py文件，并运行观察selenium对浏览器的控制</li>
+</ol>
+<p><img src="/img/selenium/se00-00.png" srcset="/img/loading.gif" lazyload alt="Selenium对浏览器的操控"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入 selenium 包</span></span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个webdriver对象，即将Chromedriver 实例化。</span></span><br><span class="line"><span class="comment"># Chrome() 函数将按照指定的内容寻找浏览器驱动</span></span><br><span class="line">driver = webdriver.Chrome(<span class="string">&quot;D:\\chromedriver.exe&quot;</span>)</span><br><span class="line"><span class="comment"># 上面改成你的chromedriver.exe的存放路径</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开指定网页 比如打开百度网页</span></span><br><span class="line">driver.get(<span class="string">&quot;https://www.baidu.com&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭 driver</span></span><br><span class="line">driver.quit()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+
+
+<ol start="2">
+<li>运行其它webdriver对象可执行的浏览器窗口操作及导航操作：</li>
+</ol>
+<p>获取当前页面的url：	<code>driver.current_url</code></p>
+<p>获取当前页面的title：	<code>driver.title</code></p>
+<p>窗口操作：	设置窗口大小 <code>driver.set_window_size(1920,1080)</code></p>
+<p>​			窗口最小化 <code>driver.minimize_window()</code></p>
+<p>​			窗口最大化 <code>driver.maximize_window()</code></p>
+<p>​			全屏窗口 <code>driver.fullscreen_window()</code></p>
+<p>导航操作：	页面返回 <code>driver.back()</code></p>
+<p>​			页面前进 <code>driver.forward()</code></p>
+<p>​			页面刷新 <code>driver.refresh()</code></p>
+<p>窗口位置操作：设置窗口位置坐标 <code>driver.set_window_position(x=500, y=400)</code></p>
+<p>​			 设置窗口坐标及宽度和高度  <code>driver.set_window_rect(x=30, y=30, width=450, height=450)</code></p>
+<p>​			 获取当前窗口位置坐标 <code>driver.get_window_position()</code></p>
+<p>​			 获取当前窗口的长和宽 <code>driver.get_window_size()</code></p>
+<p>关闭窗口操作：<code>driver.close()</code>  关闭当前窗口，或最后打开的窗口</p>
+<p>​			 <code>driver.quit()</code>  关闭所有关联窗口，并且安全关闭session</p>
+<p>三、 安装并熟悉被测系统软件</p>
+<ol>
+<li><p>解压 bysms.zip 后，进入 bysms目录，双击运行 runserver.bat 即可启动。</p>
+</li>
+<li><p>浏览器访问 登录页面 <a target="_blank" rel="noopener" href="http://127.0.0.1:8047/mgr/sign.html">http://127.0.0.1:8047/mgr/sign.html</a></p>
+</li>
+<li><p>输入管理员账号登录——用户名 ：byhy 密码： 88888888</p>
+</li>
+</ol>
+<p>练习：Selenium对浏览器的操控</p>
+<h6 id="提交代码："><a href="#提交代码：" class="headerlink" title="提交代码："></a>提交代码：</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.chrome.service <span class="keyword">import</span> Service</span><br><span class="line"></span><br><span class="line">path = Service(<span class="string">r&quot;C:\\chromedriver.exe&quot;</span>)</span><br><span class="line">driver = webdriver.Chrome(service=path)</span><br><span class="line">driver.get(<span class="string">&quot;https://www.baidu.com&quot;</span>)</span><br><span class="line">driver.set_window_size(<span class="number">1920</span> ,<span class="number">1080</span>)</span><br><span class="line">driver.minimize_window()</span><br><span class="line">driver.maximize_window()</span><br><span class="line">driver.fullscreen_window()</span><br><span class="line">driver.back()</span><br><span class="line">driver.forward()</span><br><span class="line">driver.refresh()</span><br><span class="line">driver.set_window_position(x=<span class="number">500</span>, y=<span class="number">400</span>)</span><br><span class="line">driver.set_window_rect(x=<span class="number">30</span>, y=<span class="number">30</span>, width=<span class="number">450</span>, height=<span class="number">450</span>)</span><br><span class="line">driver.get_window_position()</span><br><span class="line">driver.get_window_size()</span><br><span class="line">driver.close()</span><br><span class="line">driver.quit()</span><br></pre></td></tr></table></figure>
                 
               </div>
             
@@ -521,13 +590,27 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
   
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" class="print-no-link">#第一篇文章</a>
-      
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/selenium/" class="category-chain-item">selenium</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
     </div>
+  
   
 </div>
 
@@ -537,8 +620,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>第一篇文章</div>
-      <div>http://example.com/2024/12/09/post-title/</div>
+      <div>初识Selenium和设置被测系统</div>
+      <div>http://example.com/2024/12/15/selenium/selenium00/</div>
     </div>
     <div class="license-meta">
       
@@ -550,7 +633,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年12月9日</div>
+          <div>2024年12月15日</div>
         </div>
       
       
@@ -582,9 +665,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/12/13/index/" title="playlist">
+                      <a href="/2024/12/15/selenium/selenium02/" title="Selenium的CSS层叠样式表选择器（一）">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">playlist</span>
+                        <span class="hidden-mobile">Selenium的CSS层叠样式表选择器（一）</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -592,8 +675,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/12/09/hello-world/" title="Hexo 使用指南">
-                        <span class="hidden-mobile">Hexo 使用指南</span>
+                      <a href="/2024/12/15/selenium/selenium01/" title="操控元素的基本方法">
+                        <span class="hidden-mobile">操控元素的基本方法</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -604,82 +687,6 @@
             </div>
 
             
-  
-  
-    <article id="comments" lazyload>
-      <div class="disqus" style="width:100%">
-  <div id="disqus_thread">
-    <div id="disqus_loading" style="width: 100%; margin: 0 auto 0 auto; text-align: center;">
-      <button type="button" class="btn btn-primary disqus_click_btn" onclick="reload_disqus();">点击加载评论</button>
-    </div>
-  </div>
-  <script type="text/javascript">
-	/*Disqus 评论框*/
-	var recheckDQ = function () {
-		if($('#disqus_thread').length) {
-			var xhr = new XMLHttpRequest();
-			xhr.open('GET', '//disqus.com/next/config.json?' + new Date().getTime(), true);
-			xhr.timeout = 3000;
-			xhr.onreadystatechange = function () {
-				if (xhr.readyState == 4 && xhr.status == 200) {
-					/*加载 Disqus 评论框*/
-					if(window.DISQUS) {
-						DISQUS.reset({
-						reload: true
-						});
-					} else {
-						/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-						var disqus_shortname = 'fluid';
-						
-						/* * * DON'T EDIT BELOW THIS LINE * * */
-             			var disqus_config = function () {
-							 this.page.url = "http://example.com/2024/12/09/post-title/";
-							 this.page.identifier = "2024/12/09/post-title/"; 
-							 this.page.title = "第一篇文章";
-             			};
-             			(function () {
-							 var d = document, s = d.createElement('script');
-               				 s.type = 'text/javascript';
-               				 s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-               				 s.setAttribute('data-timestamp', +new Date());
-               				 (d.head || d.body).appendChild(s);
-             			})();
-					}
-				}
-			}
-			xhr.ontimeout = function () {
-				xhr.abort();
-        /*加载自制评论框*/
-        document.getElementById('disqus_loading').style.display = "block";
-				document.getElementById('disqus_loading').innerHTML = '<button type="button" class="btn btn-primary disqus_click_btn" onclick="reload_disqus();">点击重新加载评论</button><div class="col-lg-6 mx-auto nopadding-md" style="padding-top:10px;"><p>如果长时间无法加载，请针对 disq.us | disquscdn.com | disqus.com 启用代理</p></div>';
-			}
-			xhr.onerror = function() {
-        /*加载自制评论框*/
-        document.getElementById('disqus_loading').style.display = "block";
-				document.getElementById('disqus_loading').innerHTML = '<button type="button" class="btn btn-primary disqus_click_btn" onclick="reload_disqus();">点击重新加载评论</button><div class="col-lg-6 mx-auto nopadding-md" style="padding-top:10px;"><p>如果长时间无法加载，请针对 disq.us | disquscdn.com | disqus.com 启用代理</p></div>';
-			}
-			xhr.send(null);
-		}
-	}
-	/*异步加载评论框*/
-	$(document).ready(function(){
-  		if(document.getElementById('disqus_thread')) {
-    		recheckDQ();
-  		}
-	});
-	/*重载评论框*/
-	var reload_disqus = function () {
-  		recheckDQ();
-  		$('#disqus_loading').css('display','none');
-	}
-  </script>
-  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://disqus.com/?ref_noscript" rel="nofollow noopener noopener">comments
-      powered by Disqus.</a></noscript>
-</div>
-    </article>
-  
-
-
           </article>
         </div>
       </div>
@@ -687,19 +694,6 @@
 
     <div class="side-col d-none d-lg-block col-lg-2">
       
-  <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
-  <p class="toc-header">
-    <i class="iconfont icon-list"></i>
-    <span>目录</span>
-  </p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-
-
-  </aside>
-
 
     </div>
   </div>
@@ -798,24 +792,6 @@
 <div class="statistics">
   
   
-  
-    
-      <!-- 不蒜子统计PV -->
-      <span id="busuanzi_container_site_pv" style="display: none">
-        总访问量 
-        <span id="busuanzi_value_site_pv"></span>
-         次
-      </span>
-    
-    
-      <!-- 不蒜子统计UV -->
-      <span id="busuanzi_container_site_uv" style="display: none">
-        总访客数 
-        <span id="busuanzi_value_site_uv"></span>
-         人
-      </span>
-    
-    
    
 </div>
   <div class="statistics">
@@ -984,8 +960,6 @@
 
   <script  src="/js/local-search.js" ></script>
 
-  <script defer src="/js/leancloud.js" ></script>
-
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
@@ -997,6 +971,7 @@
 <script src="/js/right_menu.js"></script>
 <script src="/js/calchome.js"></script>
 <script src="/js/loading.js"></script>
+<script src="/js/customize/code/prism.js"></script>
 <script src="/js/customize/xiantiao.js"></script>
 <script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/runtime.min.js"></script>
 <script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/Cherry.min.js"></script>
