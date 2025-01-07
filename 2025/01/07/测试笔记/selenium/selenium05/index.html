@@ -1,0 +1,1052 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+  <script type="text/javascript" src="../source/js/jquery.js"></script>
+  
+  <!--浏览器搞笑标题-->
+  <script type="text/javascript" src="../source/js/FunnyTitle.js"></script>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Helios">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Frame及窗口切换实验目的：了解Html中框架的概念，掌握使用WebDriver 对象的 switch_to 属性进行框架转换，方便在selenium中定位到框架中的元素进行操作。同时，明确窗口句柄的定义，掌握应用带有窗口句柄参数的switch_to 属性，够实现窗口间的跳转。 实验要求：在pycharm 环境下完成实验目的中所述各项任务  实验条件：win7&#x2F;10、pycharm、s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Frame及窗口切换">
+<meta property="og:url" content="http://example.com/2025/01/07/%E6%B5%8B%E8%AF%95%E7%AC%94%E8%AE%B0/selenium/selenium05/index.html">
+<meta property="og:site_name" content="Helios&#39;blog">
+<meta property="og:description" content="Frame及窗口切换实验目的：了解Html中框架的概念，掌握使用WebDriver 对象的 switch_to 属性进行框架转换，方便在selenium中定位到框架中的元素进行操作。同时，明确窗口句柄的定义，掌握应用带有窗口句柄参数的switch_to 属性，够实现窗口间的跳转。 实验要求：在pycharm 环境下完成实验目的中所述各项任务  实验条件：win7&#x2F;10、pycharm、s">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/selenium.png">
+<meta property="article:published_time" content="2025-01-07T07:07:12.560Z">
+<meta property="article:modified_time" content="2025-01-07T07:26:53.017Z">
+<meta property="article:author" content="Helios">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/selenium.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Frame及窗口切换 - Helios&#39;blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/shubiao.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/gradient.css">
+<link rel="stylesheet" href="/css/right_menu.css">
+<link rel="stylesheet" href="/css/loading.css">
+<link rel="stylesheet" href="/js/customize/aplayer/APlayer.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<link rel="stylesheet" href="/js/customize/code/prism.css">
+
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"python"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+
+
+
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Helios'blog" type="application/atom+xml">
+</head>
+
+
+<body><!-- hexo injector body_begin start --><div id="web_bg"></div><!-- hexo injector body_begin end -->
+  <!-- 视频背景插入 -->
+  <div id="banner_video_insert">
+	</div>	
+	<div>
+		<div class='real_mask'></div>
+		<div id="banner_video_insert">
+		</div>	
+		<div id='vvd_banner_img'>
+		</div>
+	</div>
+
+  <div id="Loadanimation" style="z-index:999999;">
+    <div id="Loadanimation-center">
+       <div id="Loadanimation-center-absolute">
+           <div class="xccx_object" id="xccx_four"></div>
+           <div class="xccx_object" id="xccx_three"></div>
+           <div class="xccx_object" id="xccx_two"></div>
+           <div class="xccx_object" id="xccx_one"></div>
+       </div>
+    </div>
+    </div>
+    
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>HeliosのBlog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-shuji1"></i>
+                <span>文章</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/archives/" target="_self">
+                    <i class="iconfont icon-archive-fill"></i>
+                    <span>归档</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/" target="_self">
+                    <i class="iconfont icon-category-fill"></i>
+                    <span>分类</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/" target="_self">
+                    <i class="iconfont icon-tags-fill"></i>
+                    <span>标签</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                <span>主题文档</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://hexo.fluid-dev.com/" target="_self">
+                    <i class="iconfont icon-brush"></i>
+                    <span>主题博客</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://hexo.fluid-dev.com/docs/guide/" target="_self">
+                    <i class="iconfont icon-top"></i>
+                    <span>配置指南</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://hexo.fluid-dev.com/docs/icon/" target="_self">
+                    <i class="iconfont icon-note"></i>
+                    <span>图标用法</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-slack-fill"></i>
+                <span>应用</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/yinyong/calculator/" target="_self">
+                    <i class="iconfont icon-brush"></i>
+                    <span>计算器</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-momo"></i>
+                <span>社交</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/links/" target="_self">
+                    <i class="iconfont icon-link-fill"></i>
+                    <span>友链</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/about/" target="_self">
+                    <i class="iconfont icon-user-fill"></i>
+                    <span>关于</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/messagebd/" target="_self">
+                    <i class="iconfont icon-comment"></i>
+                    <span>留言板</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<!-- <script type="text/javascript" src="../source/js/jquery.js"></script> -->
+  
+<!--浏览器搞笑标题-->
+<script type="text/javascript" src="../source/js/FunnyTitle.js"></script>
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/none.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    
+      <div id="banner_video_insert">
+      </div>
+
+      <script>
+     	var ua = navigator.userAgent;
+					var ipad = ua.match(/(iPad).*OS\s([\d_]+)/),
+						isIphone = !ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/),
+						isAndroid = ua.match(/(Android)\s+([\d.]+)/),
+						isMobile = isIphone || isAndroid;
+
+					function set_video_attr(id){
+
+						var height = document.body.clientHeight
+						var width = document.body.clientWidth
+						var video_item = document.getElementById(id);
+
+						if (height / width < 0.56){
+							video_item.setAttribute('width', '100%');
+							video_item.setAttribute('height', 'auto');
+						} else {
+							video_item.setAttribute('height', '100%');
+							video_item.setAttribute('width', 'auto');
+						}
+					}
+
+					$.getJSON('/js/video.json', function(data){
+						if (!isMobile){
+							var video_list_length = data.length
+							var seed = Math.random()
+							index = Math.floor(seed * video_list_length)
+							
+							video_url = data[index][0]
+							pre_show_image_url = data[index][1]
+							
+							banner_obj = document.getElementById("banner")
+							banner_obj.style.cssText = "background: url('" + pre_show_image_url + "') no-repeat; background-size: cover;"
+
+							vvd_banner_obj = document.getElementById("vvd_banner_img")
+
+							vvd_banner_content = "<img id='banner_img_item' src='" + pre_show_image_url + "' style='height: 100%; position: fixed; z-index: -999'>"
+							vvd_banner_obj.innerHTML = vvd_banner_content
+
+							video_html_res = "<video id='video_item' style='position: fixed; z-index: -888;'  muted='muted' src=" + video_url + " autoplay='autoplay' loop='loop'></video>"
+							document.getElementById("banner_video_insert").innerHTML = video_html_res;
+
+							set_video_attr('video_item')
+							set_video_attr('banner_img_item')
+						}
+					});
+
+					if (!isMobile){
+						window.onresize = function(){
+							set_video_attr('video_item')
+							}
+						}
+				</script>
+      
+
+      
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Frame及窗口切换"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-01-07 15:07" pubdate>
+          星期二, 一月 7日 2025, 3:07 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          25 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+  </header>
+
+  <main>
+ 
+
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Frame及窗口切换</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="Frame及窗口切换"><a href="#Frame及窗口切换" class="headerlink" title="Frame及窗口切换"></a><strong>Frame及窗口切换</strong></h2><p><strong>实验目的：</strong>了解Html中框架的概念，掌握使用WebDriver 对象的 switch_to 属性进行框架转换，方便在selenium中定位到框架中的元素进行操作。同时，明确窗口句柄的定义，掌握应用带有窗口句柄参数的switch_to 属性，够实现窗口间的跳转。</p>
+<p><strong>实验要求：</strong>在pycharm 环境下完成实验目的中所述各项任务 </p>
+<p><strong>实验条件：</strong>win7&#x2F;10、pycharm、selenium4.4.0 </p>
+<p><strong>实验内容及步骤：</strong></p>
+<p>一个浏览器文档窗口中一般只能显示一个网页文件，但是，使用框架标签就可以将一个浏览器文档窗口分割成多个子窗口，每个子窗口中都可以显示一个独立的网页文件。</p>
+<p>框架元素非常的特殊，是由英文Frame翻译过来的，代表浏览器文档窗口中的一个子窗口。在html语法中，frame 元素或者 iframe元素的内部会包含一个被嵌入的另一份html文档。</p>
+<p>每个框架都含有可以链接到其他多个网页的超链接条目，访问者单击这些超链接条目后，可以将超链接指向的网页文件显示在另一个指定的框架中。如果要求在单个应用窗口中显示一个以上的网页，就可以使用Frame（或iFrame）框架。iframe用来定义一个内联框架，在html文档里嵌入另一个html文档。iframe包含的内容和页面是一个整体，但是frame包含的内容是一个独立的区域。</p>
+<p>在使用selenium打开一个网页时，我们的操作范围默认是当前的 html ，并不包含被嵌入的html文档里面的内容。如果我们要操作被嵌入的 html 文档 中的元素， 就必须把操作范围切换到被嵌入的文档中。</p>
+<p>使用 WebDriver 对象的 switch_to 属性转换，形如：<code>driver.switch_to.frame(frame_reference)</code>，其中frame_reference 可以是 frame 元素的 name 或者 ID属性及 frame 所对应的 WebElement 对象。</p>
+<p>一、 根据frame元素的id进行切换： </p>
+<p>例如frame元素的 id 为‘frame1’，切换语句为： </p>
+<p><code>driver.switch_to.frame(&#39;frame1&#39;)</code></p>
+<p>二、 根据frame元素的name属性值进行切换：</p>
+<p>例如frame元素的name属性值为‘innerFrame’ ，切换语句为：</p>
+<p><code>driver.switch_to.frame(&#39;innerFrame&#39;)</code></p>
+<p>三、 根据frame元素所对应的 WebElement 对象进行切换：</p>
+<p>例如frame元素所对应的 WebElement 对象标签名是iframe，切换语句为：</p>
+<p><code>driver.switch_to.frame(driver.find_element(By.TAG_NAME, &#39;iframe&#39;)</code></p>
+<p>四、 将WebDriver 对象切换回默认区域：</p>
+<p><code>driver.switch_to.default_content()</code></p>
+<p>在针对网站的实际操作中，经常会点击一个链接或者按钮，在新窗口里面打开一个新网址，并操控新窗口里面的元素。用Selenium写的自动化程序，也要模拟实际操作，不能只在当前页面中执行，需要从 WebDriver对象对应的老窗口，切换到要进行自动化操作的新窗口中，转换语法为：<code>driver.switch_to.window(handle)</code>，其中参数handle传入的是指定窗口的句柄。</p>
+<p>五、 窗口切换</p>
+<p>WebDriver对象有window_handles 属性，这是一个列表对象，里面包括了当前浏览器里面所有的窗口句柄（相当于对应网页窗口的一个ID）。我们可以使用一个循环，依次获取 driver.window_handles 里面的所有句柄对象，并且调用 <code>driver.switch_to.window(handle)</code> 方法，切入到每个窗口中。然后根据 标题栏 之类的属性值判断是否为想要切换到的窗口。</p>
+<p>从跳转后的新窗口，返回原窗口的简便方法是：开始处在原窗口时，保存原窗口句柄，在要切换回来时，仍然使用Webdriver对象的switch_to属性的 window方法，把原窗口句柄作为参数进行传递即可。</p>
+<p>例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mainWindow变量保存当前窗口的句柄 </span></span><br><span class="line"></span><br><span class="line">mainWindow = driver.current_window_handle</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> handle <span class="keyword">in</span> driver.window_handles: </span><br><span class="line"></span><br><span class="line">  <span class="comment"># 先切换到一个窗口 </span></span><br><span class="line"></span><br><span class="line">  driver.switch_to.window(handle) </span><br><span class="line"></span><br><span class="line">  <span class="comment"># 得到该窗口的标题栏字符串，判断是不是我们要操作的那个窗口 </span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> <span class="string">&#x27;百度一下，你就知道&#x27;</span> <span class="keyword">in</span> driver.title: </span><br><span class="line">  </span><br><span class="line"><span class="comment"># 如果是，那么这时候WebDriver对象就是对应的窗口，正好，跳出循环， </span></span><br><span class="line"></span><br><span class="line">   		Break</span><br><span class="line">…………  <span class="comment"># 省略要在选定窗口中执行的操作</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过前面保存的原窗口句柄，切换回原窗口 </span></span><br><span class="line">driver.switch_to.window(mainWindow)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>练习1：登录 <a target="_blank" rel="noopener" href="https://cdn2.byhy.net/files/selenium/sample2.html%EF%BC%8C">https://cdn2.byhy.net/files/selenium/sample2.html，</a></p>
+<p>①切换进入iframe框架，在其中选择所有动物类型并输出动物名称，</p>
+<p>②切换回外层默认部分，点击“外部按钮”，</p>
+<p>③输出网页中新出现的“你点击了外部按钮”文本信息。关闭浏览器</p>
+<p>练习2：在练习1主要操作过程和关闭浏览器操作之间，添加以下操控步骤：</p>
+<p>①登录 <a target="_blank" rel="noopener" href="https://cdn2.byhy.net/files/selenium/sample3.html%EF%BC%8C">https://cdn2.byhy.net/files/selenium/sample3.html，</a></p>
+<p>②输出当前窗口的标题栏文本，点击打开新窗口的链接，</p>
+<p>③切换到新窗口并输出新窗口的标题栏文本，</p>
+<p>④返回原窗口，点击“功能按钮”，输出网页中新出现的“你点击了外部按钮”。</p>
+<ol>
+<li><p>完成练习1和练习2并提交代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.by <span class="keyword">import</span> By</span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line"><span class="comment"># 练习一</span></span><br><span class="line">driver.get(<span class="string">&quot;https://cdn2.byhy.net/files/selenium/sample2.html&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># frame1 =driver.switch_to.frame(driver.find_element(By.CSS_SELECTOR ,&#x27;.frame1&#x27;))</span></span><br><span class="line">driver.switch_to.frame(<span class="string">&#x27;innerFrame&#x27;</span>)</span><br><span class="line">elements = driver.find_elements(By.CLASS_NAME, <span class="string">&#x27;animal&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> element <span class="keyword">in</span> elements:</span><br><span class="line">    <span class="built_in">print</span>(element.text)</span><br><span class="line"></span><br><span class="line">driver.switch_to.default_content()</span><br><span class="line"></span><br><span class="line">driver.find_element(By.ID, <span class="string">&#x27;outerbutton&#x27;</span>).click()</span><br><span class="line"></span><br><span class="line">show = driver.find_element(By.ID, <span class="string">&#x27;add&#x27;</span>)</span><br><span class="line">show1 = show.find_element(By.TAG_NAME, <span class="string">&#x27;li&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(show1.text)</span><br><span class="line"><span class="comment"># driver.quit()</span></span><br><span class="line">time.sleep(<span class="number">2</span>)</span><br><span class="line"><span class="comment"># 练习二</span></span><br><span class="line">driver.get(<span class="string">&#x27;https://cdn2.byhy.net/files/selenium/sample3.html&#x27;</span>)</span><br><span class="line">mainWindow = driver.current_window_handle</span><br><span class="line"><span class="built_in">print</span>(driver.title)</span><br><span class="line"></span><br><span class="line">link = driver.find_element(By.TAG_NAME, <span class="string">&#x27;a&#x27;</span>).click()</span><br><span class="line"><span class="comment"># driver.switch_to.window()</span></span><br><span class="line">time.sleep(<span class="number">2</span>)</span><br><span class="line"><span class="keyword">for</span> handle <span class="keyword">in</span> driver.window_handles:</span><br><span class="line">    <span class="comment"># 先切换到该窗口</span></span><br><span class="line">    driver.switch_to.window(handle)</span><br><span class="line">    <span class="comment"># 得到该窗口的标题栏字符串，判断是不是我们要操作的那个窗口</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;Bing&#x27;</span> <span class="keyword">in</span> driver.title:</span><br><span class="line">        <span class="comment"># 如果是，那么这时候WebDriver对象就是对应的该该窗口，正好，跳出循环，</span></span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"><span class="built_in">print</span>(driver.title)</span><br><span class="line"></span><br><span class="line">driver.switch_to.window(mainWindow)</span><br><span class="line">driver.find_element(By.ID, <span class="string">&#x27;outerbutton&#x27;</span>).click()</span><br><span class="line">show2 = driver.find_element(By.ID, <span class="string">&#x27;add&#x27;</span>)</span><br><span class="line">show3 = show2.find_element(By.TAG_NAME, <span class="string">&#x27;li&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(show3.text)</span><br><span class="line">driver.quit()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>打开网易云音乐<a target="_blank" rel="noopener" href="https://music.163.com/%E7%BD%91%E7%AB%99%EF%BC%8C%E7%82%B9%E5%87%BB%E2%80%9C%E6%8E%92%E8%A1%8C%E6%A6%9C%E2%80%9D%EF%BC%8C%E5%9C%A8%E5%B7%A6%E4%BE%A7%E8%8F%9C%E5%8D%95%E6%A0%8F%E4%B8%AD%E7%82%B9%E5%87%BB%E2%80%9C%E6%96%B0%E6%AD%8C%E6%A6%9C%E2%80%9D%EF%BC%8C%E5%9C%A8%E6%AD%8C%E6%9B%B2%E5%88%97%E8%A1%A8%E4%B8%AD%E6%89%BE%E5%87%BA%E6%8E%92%E5%90%8D%E4%B8%8A%E5%8D%87%E6%9C%80%E5%A4%9A%E5%92%8C%E4%B8%8B%E9%99%8D%E6%9C%80%E5%A4%9A%E7%9A%84%E6%AD%8C%E6%9B%B2%E5%90%8D%E7%A7%B0%E5%8F%8A%E6%AD%8C%E6%89%8B%EF%BC%8C%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F%E4%B8%BA%EF%BC%9A">https://music.163.com/网站，点击“排行榜”，在左侧菜单栏中点击“新歌榜”，在歌曲列表中找出排名上升最多和下降最多的歌曲名称及歌手，输出格式为：</a></p>
+</li>
+</ol>
+<p>​			<code>排名上升最多：歌曲名：XXX  歌手：YYY（若有上升位次相同的换行列出）</code></p>
+<p>​			<code>	排名下降最多：歌曲名：XXX  歌手：YYY（若有下降位次相同的换行列出）</code></p>
+<h4 id="提交代码"><a href="#提交代码" class="headerlink" title="提交代码"></a>提交代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#xml是XML和HTML的解析器，其主要功能是解析和提取XML和HTML中的数据</span></span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.by <span class="keyword">import</span> By</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法一</span></span><br><span class="line"><span class="comment"># driver = webdriver.Chrome()</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># driver.get(&#x27;https://music.163.com/&#x27;)</span></span><br><span class="line"><span class="comment"># # 隐式等待 等待页面加载成功</span></span><br><span class="line"><span class="comment"># driver.implicitly_wait(3)</span></span><br><span class="line"><span class="comment"># # 点击排行榜</span></span><br><span class="line"><span class="comment"># rank_btn = driver.find_element(By.CSS_SELECTOR,&quot;body ul &gt;li+li&gt;a&quot;)</span></span><br><span class="line"><span class="comment"># rank_btn.click()</span></span><br><span class="line"><span class="comment"># #iframe标签定位</span></span><br><span class="line"><span class="comment"># driver.switch_to.frame(&#x27;g_iframe&#x27;)</span></span><br><span class="line"><span class="comment"># #点击新歌榜</span></span><br><span class="line"><span class="comment"># new_song_btn = driver.find_element(By.CSS_SELECTOR,&quot;.f-cb &gt; li+li&quot;).click()</span></span><br><span class="line"><span class="comment"># page_text = driver.execute_script(&quot;return document.documentElement.outerHTML&quot;)</span></span><br><span class="line"><span class="comment"># #获取页面</span></span><br><span class="line"><span class="comment"># html = etree.HTML(page_text)</span></span><br><span class="line"><span class="comment"># up_rank_list =[]</span></span><br><span class="line"><span class="comment"># down_rank_list =[]</span></span><br><span class="line"><span class="comment"># up_song_name_list=[]</span></span><br><span class="line"><span class="comment"># up_artist_list =[]</span></span><br><span class="line"><span class="comment"># down_song_name_list=[]</span></span><br><span class="line"><span class="comment"># down_artist_list=[]</span></span><br><span class="line"><span class="comment"># #获取每个列表</span></span><br><span class="line"><span class="comment"># song_rows = html.xpath(&#x27;//tbody/tr&#x27;)</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># #获取每个列表里的元素并添加到数组</span></span><br><span class="line"><span class="comment"># for row in song_rows:</span></span><br><span class="line"><span class="comment">#     up_rank = row.xpath(&#x27;.//span[@class=&quot;ico u-icn u-icn-73 s-fc9&quot;]/text()&#x27;)</span></span><br><span class="line"><span class="comment">#     down_rank = row.xpath(&#x27;.//span[@class=&quot;ico u-icn u-icn-74 s-fc10&quot;]/text()&#x27;)</span></span><br><span class="line"><span class="comment">#     song_name = row.xpath(&quot;.//b/@title&quot;)</span></span><br><span class="line"><span class="comment">#     span = row.xpath(&quot;.//td[@class=&#x27; s-fc3&#x27;]/span[@class=&#x27;u-dur &#x27;]/text()&quot;)</span></span><br><span class="line"><span class="comment">#     artist = row.xpath(&quot;.//div[@class=&#x27;text&#x27;]/span/@title&quot;)</span></span><br><span class="line"><span class="comment">#     if up_rank != []:</span></span><br><span class="line"><span class="comment">#         str1 = &#x27;&#x27;.join(up_rank)</span></span><br><span class="line"><span class="comment">#         up_rank_list.append(int(str1))   # 最大上升数组</span></span><br><span class="line"><span class="comment">#         song_name_str = &#x27;&#x27;.join(song_name)</span></span><br><span class="line"><span class="comment">#         up_song_name_list.append(song_name_str)</span></span><br><span class="line"><span class="comment">#         artist_str =&#x27;&#x27;.join(artist)</span></span><br><span class="line"><span class="comment">#         up_artist_list.append(artist_str)</span></span><br><span class="line"><span class="comment">#     if down_rank !=[]:</span></span><br><span class="line"><span class="comment">#         str2 = &#x27;&#x27;.join(down_rank)</span></span><br><span class="line"><span class="comment">#         down_rank_list.append(int(str2)) # 最大下降数组</span></span><br><span class="line"><span class="comment">#         song_name_str = &#x27;&#x27;.join(song_name)</span></span><br><span class="line"><span class="comment">#         down_song_name_list.append(song_name_str)</span></span><br><span class="line"><span class="comment">#         artist_str =&#x27;&#x27;.join(artist)</span></span><br><span class="line"><span class="comment">#         down_artist_list.append(artist_str)</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># t1 = max(up_rank_list)</span></span><br><span class="line"><span class="comment"># num = len(up_rank_list)</span></span><br><span class="line"><span class="comment"># n=0</span></span><br><span class="line"><span class="comment"># for i in up_rank_list:</span></span><br><span class="line"><span class="comment">#     if i ==t1:</span></span><br><span class="line"><span class="comment">#         n=n+1</span></span><br><span class="line"><span class="comment"># if n!=1:</span></span><br><span class="line"><span class="comment">#     for j in range(num):</span></span><br><span class="line"><span class="comment">#         if up_rank_list[j] == t1:</span></span><br><span class="line"><span class="comment">#             print(&quot;排名上升最多：&quot;+up_song_name_list[j]+&quot; \t 歌手：&quot;+up_artist_list[j])</span></span><br><span class="line"><span class="comment"># else:</span></span><br><span class="line"><span class="comment">#     a1 = up_rank_list.index(t1)</span></span><br><span class="line"><span class="comment">#     print(&quot;排名上升最多：&quot;+up_song_name_list[a1]+&quot; \t 歌手：&quot;+up_artist_list[a1])</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># t2 = max(down_rank_list)</span></span><br><span class="line"><span class="comment"># num2 = len(down_rank_list)</span></span><br><span class="line"><span class="comment"># # print(num)</span></span><br><span class="line"><span class="comment"># n1=0</span></span><br><span class="line"><span class="comment"># for i1 in down_rank_list:</span></span><br><span class="line"><span class="comment">#     if i1 ==t1:</span></span><br><span class="line"><span class="comment">#         n1=n1+1</span></span><br><span class="line"><span class="comment"># if n1!=1:</span></span><br><span class="line"><span class="comment">#     for j1 in range(num2):</span></span><br><span class="line"><span class="comment">#         if down_rank_list[j1] == t2:</span></span><br><span class="line"><span class="comment">#             print(&quot;排名下降最多：&quot;+down_song_name_list[j1]+&quot; \t 歌手：&quot;+down_artist_list[j1])</span></span><br><span class="line"><span class="comment"># else:</span></span><br><span class="line"><span class="comment">#     a2 = down_rank_list.index(t2)</span></span><br><span class="line"><span class="comment">#     print(&quot;排名下降最多：&quot;+down_song_name_list[a2]+&quot; \t 歌手：&quot;+down_artist_list[a2])</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法二</span></span><br><span class="line"><span class="comment"># driver = webdriver.Chrome()</span></span><br><span class="line"><span class="comment"># driver.get(&#x27;https://music.163.com/&#x27;)</span></span><br><span class="line"><span class="comment"># driver.find_element(By.CSS_SELECTOR, &quot;#g_nav2 li:nth-child(2) a&quot;).click()</span></span><br><span class="line"><span class="comment"># driver.switch_to.frame(driver.find_element(By.ID, &#x27;g_iframe&#x27;))</span></span><br><span class="line"><span class="comment"># driver.find_element(By.CSS_SELECTOR, &#x27;#toplist li:nth-child(2) a&#x27;).click()</span></span><br><span class="line"><span class="comment"># item = driver.find_element(By.CSS_SELECTOR, &#x27;#song-list-pre-cache table tbody&#x27;)</span></span><br><span class="line"><span class="comment"># up_table =[]</span></span><br><span class="line"><span class="comment"># lown_table =[]</span></span><br><span class="line"><span class="comment"># num=0</span></span><br><span class="line"><span class="comment"># sleep(1)</span></span><br><span class="line"><span class="comment"># for i in item.find_elements(By.TAG_NAME, &#x27;tr&#x27;):</span></span><br><span class="line"><span class="comment">#     ranking = i.find_element(By.CSS_SELECTOR, &#x27;.rk span&#x27;)</span></span><br><span class="line"><span class="comment">#     name = i.find_element(By.CSS_SELECTOR, &#x27;td:nth-child(2) .ttc a b&#x27;)</span></span><br><span class="line"><span class="comment">#     singer = i.find_element(By.CSS_SELECTOR, &#x27;td:nth-child(4) div&#x27;)</span></span><br><span class="line"><span class="comment">#     class_list = ranking.get_attribute(&#x27;class&#x27;).split(&quot; &quot;)</span></span><br><span class="line"><span class="comment">#     temp=[(ranking.text),name.get_attribute(&#x27;title&#x27;),singer.get_attribute(&#x27;title&#x27;)]</span></span><br><span class="line"><span class="comment">#     if &#x27;u-icn-73&#x27; in class_list:</span></span><br><span class="line"><span class="comment">#         up_table.append(temp)</span></span><br><span class="line"><span class="comment">#     elif &#x27;u-icn-74&#x27; in class_list:</span></span><br><span class="line"><span class="comment">#         lown_table.append(temp)</span></span><br><span class="line"><span class="comment"># up_table.sort(key=lambda x:int(x[0]), reverse=True)</span></span><br><span class="line"><span class="comment"># lown_table.sort(key=lambda x:int(x[0]), reverse=True)</span></span><br><span class="line"><span class="comment"># for table in [up_table, lown_table]:</span></span><br><span class="line"><span class="comment">#     for i in table:</span></span><br><span class="line"><span class="comment">#         if i[0] == table[0][0]:</span></span><br><span class="line"><span class="comment">#             print(f&quot;排名&#123;[&#x27;上升&#x27;,&#x27;下降&#x27;][num]&#125;最多： 歌曲名：&#123;i[1]&#125; 歌手：&#123;i[2]&#125;&quot;)</span></span><br><span class="line"><span class="comment">#         else:</span></span><br><span class="line"><span class="comment">#             break</span></span><br><span class="line"><span class="comment">#         num +=1</span></span><br><span class="line"><span class="comment"># 方法三</span></span><br><span class="line"><span class="comment"># driver = webdriver.Chrome()</span></span><br><span class="line"><span class="comment"># driver.get(&#x27;https://music.163.com/&#x27;)</span></span><br><span class="line"><span class="comment"># driver.find_element(By.CSS_SELECTOR,&#x27;[href=&quot;/discover/toplist&quot;]&#x27;).click()</span></span><br><span class="line"><span class="comment"># driver.switch_to.frame(&#x27;contentFrame&#x27;)</span></span><br><span class="line"><span class="comment"># driver.find_element(By.CSS_SELECTOR, &#x27;[href=&quot;/discover/toplist?id=3779629&quot;]&#x27;).click()</span></span><br><span class="line"><span class="comment"># maxnum=[]</span></span><br><span class="line"><span class="comment"># minnum=[]</span></span><br><span class="line"><span class="comment"># count1 =[]</span></span><br><span class="line"><span class="comment"># count2=[]</span></span><br><span class="line"><span class="comment"># count =0</span></span><br><span class="line"><span class="comment"># list_all = driver.find_elements(By.CSS_SELECTOR, &#x27;.rk&gt;span&#x27;)</span></span><br><span class="line"><span class="comment"># for n in list_all:</span></span><br><span class="line"><span class="comment">#     count = count+1</span></span><br><span class="line"><span class="comment">#     txt = n.get_attribute(&quot;className&quot;).split(&quot; &quot;)[-1]</span></span><br><span class="line"><span class="comment">#     if txt == &quot;s-fc9&quot;:</span></span><br><span class="line"><span class="comment">#         maxnum.append(int(n.text))</span></span><br><span class="line"><span class="comment">#         count1.append(count)</span></span><br><span class="line"><span class="comment">#     elif txt == &quot;s-fc10&quot;:</span></span><br><span class="line"><span class="comment">#         minnum.append(int(n.text))</span></span><br><span class="line"><span class="comment">#         count2.append(count)</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># print(max(maxnum))</span></span><br><span class="line"><span class="comment"># print(max(minnum))</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># upnum = []</span></span><br><span class="line"><span class="comment"># for i in range(len(maxnum)):</span></span><br><span class="line"><span class="comment">#     if maxnum[i]== max(maxnum):</span></span><br><span class="line"><span class="comment">#         upnum.append(count1[i])</span></span><br><span class="line"><span class="comment"># # downnum用来记录下降最快的位于所有列表的哪个位置</span></span><br><span class="line"><span class="comment"># downnum = []</span></span><br><span class="line"><span class="comment"># for j in range(len(minnum)):</span></span><br><span class="line"><span class="comment">#     if minnum[j] == max(minnum):</span></span><br><span class="line"><span class="comment">#         downnum.append(count2[j])</span></span><br><span class="line"><span class="comment"># songname = driver.find_elements(By.CSS_SELECTOR, &#x27;.ttc&gt;.txt&gt;a&gt;b&#x27;)</span></span><br><span class="line"><span class="comment"># singer = driver.find_elements(By.CSS_SELECTOR, &#x27;.text&gt;span&#x27;)</span></span><br><span class="line"><span class="comment"># for m in upnum:</span></span><br><span class="line"><span class="comment">#     print(&quot;排名上升最多∶歌曲名: &quot;+songname[m-1].get_attribute(&quot;title&quot;)+&quot;歌手:&quot;+singer[m-1].get_attribute(&quot;title&quot;))</span></span><br><span class="line"><span class="comment"># for n in downnum:</span></span><br><span class="line"><span class="comment">#     print(&quot;排名下降最多∶歌曲名:&quot;+songname[n-1].get_attribute(&quot;title&quot;)+&quot;歌手: &quot;+singer[n-1].get_attribute(&quot;title&quot;))</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>以管理员身份登录 <a target="_blank" rel="noopener" href="http://127.0.0.1:8047/mgr/sign.html%EF%BC%8C%E7%94%A8%E6%88%B7%E5%90%8D">http://127.0.0.1:8047/mgr/sign.html，用户名</a> ：byhy 密码： 88888888。点击页脚处 链接 白月黑羽教学使用，点击访问官网；然后在新打开的 白月黑羽教学网页，获取页眉导航菜单中所有教程类目（可以调用webdriver对象的maximize_window()方法最大化窗口，以便显示所有菜单 ）；随后再回到 白月SMS系统网页，点击退出登录。预期结果为：成功登录后，完成上述操作，验证导航菜单名，依次为：Python基础、Python进阶、Qt图形界面、Django、自动化测试、性能测试、HTML&#x2F;CSS、JS语言、JS Web。验证回到登录界面（可以根据webdriver对象的current_url属性判断是否进入登录页面）。</li>
+</ol>
+<h4 id="提交代码-1"><a href="#提交代码-1" class="headerlink" title="提交代码"></a>提交代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.by <span class="keyword">import</span> By</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建 WebDriver 实例对象，指明使用chrome浏览器驱动</span></span><br><span class="line">wd = webdriver.Chrome()</span><br><span class="line"><span class="comment"># WebDriver 实例对象的get方法 可以让浏览器打开指定网址</span></span><br><span class="line">wd.get(<span class="string">&#x27;http://127.0.0.1:8047/mgr/sign.html&#x27;</span>)</span><br><span class="line"><span class="comment"># 设置最大等待时长为 10秒</span></span><br><span class="line">wd.implicitly_wait(<span class="number">10</span>)</span><br><span class="line"><span class="comment">#最大化窗口</span></span><br><span class="line">wd.maximize_window()</span><br><span class="line"><span class="comment">#登录白月黑羽系统</span></span><br><span class="line">elementuser = wd.find_element(By.ID,<span class="string">&#x27;username&#x27;</span>)</span><br><span class="line">elementuser.send_keys(<span class="string">&#x27;byhy&#x27;</span>)</span><br><span class="line">elementpass = wd.find_element(By.ID, <span class="string">&#x27;password&#x27;</span>)</span><br><span class="line">elementpass.send_keys(<span class="string">&#x27;88888888&#x27;</span>)</span><br><span class="line">elementbutton=wd.find_element(By.TAG_NAME, <span class="string">&#x27;button&#x27;</span>)</span><br><span class="line">elementbutton.click()</span><br><span class="line"><span class="comment">#点击外链之前先保存本页面句柄</span></span><br><span class="line">mainwindow=wd.current_window_handle</span><br><span class="line"><span class="comment">#点击外链</span></span><br><span class="line">wd.find_element(By.CSS_SELECTOR ,<span class="string">&#x27;.pull-right&gt;[href=&quot;http://www.python3.vip&quot;]&#x27;</span>).click()</span><br><span class="line"><span class="comment">#寻找所选外链</span></span><br><span class="line"><span class="keyword">for</span> handle <span class="keyword">in</span> wd.window_handles:</span><br><span class="line">    wd.switch_to.window(handle)</span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;白月黑羽教Python&#x27;</span> <span class="keyword">in</span> wd.title:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">wd.maximize_window()</span><br><span class="line">barelements=wd.find_elements(By.CSS_SELECTOR, <span class="string">&#x27;li.nav-item span&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> barelement <span class="keyword">in</span> barelements:</span><br><span class="line">    <span class="built_in">print</span>(barelement.text)</span><br><span class="line">wd.switch_to.window(mainwindow)</span><br><span class="line">wd.find_element(By.CSS_SELECTOR, <span class="string">&#x27;span.hidden-xs&#x27;</span>).click()</span><br><span class="line">wd.find_element(By.CSS_SELECTOR, <span class="string">&#x27;.pull-right a.btn&#x27;</span>).click()</span><br><span class="line">sleep(<span class="number">2</span>)</span><br><span class="line"><span class="keyword">if</span> wd.current_url==<span class="string">&quot;http://127.0.0.1/mgr/sign.html&quot;</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;成功退出登录&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+                
+              </div>
+            
+            <hr/>
+
+
+            <!-- 添加打赏模块 -->
+            <div class="reward-container">
+              
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/selenium/" class="category-chain-item">selenium</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Frame及窗口切换</div>
+      <div>http://example.com/2025/01/07/测试笔记/selenium/selenium05/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Helios</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年1月7日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/01/07/%E6%B5%8B%E8%AF%95%E7%AC%94%E8%AE%B0/selenium/selenium06/" title="选择框操作">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">选择框操作</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/01/07/%E6%B5%8B%E8%AF%95%E7%AC%94%E8%AE%B0/selenium/selenium03/" title="Selenium的CSS层叠样式表选择器（一）">
+                        <span class="hidden-mobile">Selenium的CSS层叠样式表选择器（一）</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+  <script  src="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script type="text/javascript">
+  /* Fancybox */
+  var setupFancybox = function () {
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(function() {
+    var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      $(this).wrap(element);
+    });
+  };
+  setupFancybox();
+  </script>
+
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+      <div class="col-lg-7 mx-auto nopadding-x-md">
+        <div class="container custom mx-auto">
+           <!-- require APlayer --> <!--<link rel="stylesheet" href="/js/customize/aplayer/APlayer.min.css">--> <!--<div id="aplayer"></div>--> <!--<script type="text/javascript" src="/js/customize/aplayer/APlayer.min.js"></script>--> <!--<script type="text/javascript" src="/js/customize/aplayer/music.js"></script>--> <!-- require MetingJS --> <!--<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>--> <!--<meting-js--> <!--  auto="https://y.qq.com/n/yqq/song/001RGrEX3ija5X.html">  --> <!--server = "netease"--> <!--type = "playlist"--> <!--id = "5349753401">--> <!--</meting-js>--> 
+        </div>
+      </div>
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Helios</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/customize/custom.js"></script> </div> 
+    </div>
+  
+  
+    
+<div class="statistics">
+  
+  
+   
+</div>
+  <div class="statistics">
+    <a target="_blank" rel="noopener" href="https://developer.hitokoto.cn/" id="hitokoto_text"><span style="color: #DDD;"  id="hitokoto"></span></a>
+    <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+  </div>
+  
+  
+  
+</div>
+
+<!-- 页脚繁体简体切换 -->
+<div class="translate-style">
+  繁/简：<a id="translateLink" href="javascript:translatePage();">繁体
+  </a>
+  </div>
+  <script type="text/javascript" src="/js/tw_cn.js"></script>
+  <script type="text/javascript">
+  var defaultEncoding = 2; //网站编写字体是否繁体，1-繁体，2-简体
+  var translateDelay = 0; //延迟时间,若不在前, 要设定延迟翻译时间, 如100表示100ms,默认为0
+  var cookieDomain = "https://1han.wiki/"; //Cookie地址, 一定要设定, 通常为你的网址
+  var msgToTraditionalChinese = "繁体"; //此处可以更改为你想要显示的文字
+  var msgToSimplifiedChinese = "简体"; //同上，但两处均不建议更改
+  var translateButtonId = "translateLink"; //默认互换id
+  translateInitilization();
+  </script>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  
+<script src="/js/custom.js"></script>
+<script src="/scripts/ingect.js"></script>
+<script src="/js/right_menu.js"></script>
+<script src="/js/loading.js"></script>
+<script src="/js/customize/code/prism.js"></script>
+<script src="/js/customize/xiantiao.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/runtime.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/Cherry.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/star.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/love.min.js"></script>
+<script src="/js/customize/aplayer/APlayer.min.js"></script>
+<script src="/js/customize/Meting.js"></script>
+<script src="/js/customize/music.js"></script>
+<script src="//cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  <div id="tooltip-rightmenu" class="tooltip-rightmenu">如需原始右键菜单请按下 <strong>Ctrl+右键</strong></div>
+
+<div id="rightmenu-wrapper" style="display: block;">
+  <ul class="list-v rightmenu" id="rightmenu-content">
+	  <li class="navigation menuNavigation-Content">
+		<a class="nav icon-only fix-cursor-default" onclick="history.back()"><i class="iconfont icon-zuojiantou1"></i></a>
+		<a class="nav icon-only fix-cursor-default" onclick="history.forward()"><i class="iconfont icon-youjiantou1"></i></a>
+		<a class="nav icon-only fix-cursor-default" onclick="window.location.reload()"><i class="iconfont icon-shuaxin"></i></a>
+		<a  aria-label="TOP" href="#" role="button"><i class="iconfont icon-xiangshang"></i></a>
+	  </li>
+
+		<hr class="menuLoad-Content" style="display: block;">
+	  <li class="menuLoad-Content" style="display: block;">
+		<a class="vlts-menu fix-cursor-default" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+		  <span>
+			  <i class="iconfont icon-sousuo1 rightmenu-icon"></i>
+			  站内搜索
+		  </span>
+		</a>
+	  </li>
+
+	  <li class="menuLoad-Content" style="display: block;">
+		<a class="vlts-menu fix-cursor-default"  target="_blank" rel="noopener" href="https://www.zywvvd.com/messagebd/" data-group="link">
+		  <span>
+			  <i class="iconfont icon-yangshi_icon_tongyong_chat rightmenu-icon">  </i>
+			   留言吐槽 
+		   </span>
+		</a>
+	  </li>
+
+
+	  <li class="menuLoad-Content" style="display: block;">
+		<a class="vlts-menu fix-cursor-default" id="help" target="_blank" rel="noopener" href="https://www.foreverblog.cn/go.html" data-group="link">
+		<span>
+			  <i class="iconfont icon-a-BlackHole rightmenu-icon"></i>
+			  虫洞穿梭
+		  </span>
+		</a>
+	  </li>
+
+	<a id="scroll-top-button" aria-label="TOP" href="#" role="button" style="bottom: 20px; right: 52.6364px;">
+        <i class="iconfont icon-xiangshangjiantou" aria-hidden="true"></i>
+      </a>
+
+	<hr class="menuLoad-Content" style="display: block;">
+	
+
+  </ul>
+</div>
+
+<link href="/css/custom.css"type="text/css"rel="stylesheet"/>
+<script src="/vvd_js/right_menu.js" type="text/javascript"></script>
+<link href="/css/right_menu.css"type="text/css"rel="stylesheet"/>
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start --><script src="/js/customize/postshixiaoxing.js"></script><script src="/js/customize/zdy.js"></script>
+  <div id="aplayer"></div>
+  <link defer rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css" />
+  <script src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js"></script>
+  <script defer src="/js/aplayer.js"></script>
+<script src="/js/customize/backgroundize.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

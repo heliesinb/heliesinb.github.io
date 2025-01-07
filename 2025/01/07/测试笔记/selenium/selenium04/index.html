@@ -1,0 +1,1060 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+  <script type="text/javascript" src="../source/js/jquery.js"></script>
+  
+  <!--浏览器搞笑标题-->
+  <script type="text/javascript" src="../source/js/FunnyTitle.js"></script>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Helios">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Selenium的CSS层叠样式表选择器（二）实验目的：了解CSS Selector的选择语法的联合使用方法，掌握组选择、按顺序选择子节点和兄弟节点选择的方法。能够使用CSS 选择器选择语法的联合使用完成要求的元素定位。 实验要求：在pycharm 环境下完成实验目的中所述各项任务  实验条件：win7&#x2F;10、pycharm、selenium4.4.0  实验内容及步骤： 使用CSS选择">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Selenium的CSS层叠样式表选择器（二）">
+<meta property="og:url" content="http://example.com/2025/01/07/%E6%B5%8B%E8%AF%95%E7%AC%94%E8%AE%B0/selenium/selenium04/index.html">
+<meta property="og:site_name" content="Helios&#39;blog">
+<meta property="og:description" content="Selenium的CSS层叠样式表选择器（二）实验目的：了解CSS Selector的选择语法的联合使用方法，掌握组选择、按顺序选择子节点和兄弟节点选择的方法。能够使用CSS 选择器选择语法的联合使用完成要求的元素定位。 实验要求：在pycharm 环境下完成实验目的中所述各项任务  实验条件：win7&#x2F;10、pycharm、selenium4.4.0  实验内容及步骤： 使用CSS选择">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/selenium.png">
+<meta property="article:published_time" content="2025-01-07T06:54:54.239Z">
+<meta property="article:modified_time" content="2025-01-07T07:03:09.821Z">
+<meta property="article:author" content="Helios">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/selenium.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Selenium的CSS层叠样式表选择器（二） - Helios&#39;blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/shubiao.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/gradient.css">
+<link rel="stylesheet" href="/css/right_menu.css">
+<link rel="stylesheet" href="/css/loading.css">
+<link rel="stylesheet" href="/js/customize/aplayer/APlayer.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<link rel="stylesheet" href="/js/customize/code/prism.css">
+
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"python"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+
+
+
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Helios'blog" type="application/atom+xml">
+</head>
+
+
+<body><!-- hexo injector body_begin start --><div id="web_bg"></div><!-- hexo injector body_begin end -->
+  <!-- 视频背景插入 -->
+  <div id="banner_video_insert">
+	</div>	
+	<div>
+		<div class='real_mask'></div>
+		<div id="banner_video_insert">
+		</div>	
+		<div id='vvd_banner_img'>
+		</div>
+	</div>
+
+  <div id="Loadanimation" style="z-index:999999;">
+    <div id="Loadanimation-center">
+       <div id="Loadanimation-center-absolute">
+           <div class="xccx_object" id="xccx_four"></div>
+           <div class="xccx_object" id="xccx_three"></div>
+           <div class="xccx_object" id="xccx_two"></div>
+           <div class="xccx_object" id="xccx_one"></div>
+       </div>
+    </div>
+    </div>
+    
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>HeliosのBlog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-shuji1"></i>
+                <span>文章</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/archives/" target="_self">
+                    <i class="iconfont icon-archive-fill"></i>
+                    <span>归档</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/" target="_self">
+                    <i class="iconfont icon-category-fill"></i>
+                    <span>分类</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/" target="_self">
+                    <i class="iconfont icon-tags-fill"></i>
+                    <span>标签</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                <span>主题文档</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://hexo.fluid-dev.com/" target="_self">
+                    <i class="iconfont icon-brush"></i>
+                    <span>主题博客</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://hexo.fluid-dev.com/docs/guide/" target="_self">
+                    <i class="iconfont icon-top"></i>
+                    <span>配置指南</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://hexo.fluid-dev.com/docs/icon/" target="_self">
+                    <i class="iconfont icon-note"></i>
+                    <span>图标用法</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-slack-fill"></i>
+                <span>应用</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/yinyong/calculator/" target="_self">
+                    <i class="iconfont icon-brush"></i>
+                    <span>计算器</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-momo"></i>
+                <span>社交</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/links/" target="_self">
+                    <i class="iconfont icon-link-fill"></i>
+                    <span>友链</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/about/" target="_self">
+                    <i class="iconfont icon-user-fill"></i>
+                    <span>关于</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/messagebd/" target="_self">
+                    <i class="iconfont icon-comment"></i>
+                    <span>留言板</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<!-- <script type="text/javascript" src="../source/js/jquery.js"></script> -->
+  
+<!--浏览器搞笑标题-->
+<script type="text/javascript" src="../source/js/FunnyTitle.js"></script>
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/none.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    
+      <div id="banner_video_insert">
+      </div>
+
+      <script>
+     	var ua = navigator.userAgent;
+					var ipad = ua.match(/(iPad).*OS\s([\d_]+)/),
+						isIphone = !ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/),
+						isAndroid = ua.match(/(Android)\s+([\d.]+)/),
+						isMobile = isIphone || isAndroid;
+
+					function set_video_attr(id){
+
+						var height = document.body.clientHeight
+						var width = document.body.clientWidth
+						var video_item = document.getElementById(id);
+
+						if (height / width < 0.56){
+							video_item.setAttribute('width', '100%');
+							video_item.setAttribute('height', 'auto');
+						} else {
+							video_item.setAttribute('height', '100%');
+							video_item.setAttribute('width', 'auto');
+						}
+					}
+
+					$.getJSON('/js/video.json', function(data){
+						if (!isMobile){
+							var video_list_length = data.length
+							var seed = Math.random()
+							index = Math.floor(seed * video_list_length)
+							
+							video_url = data[index][0]
+							pre_show_image_url = data[index][1]
+							
+							banner_obj = document.getElementById("banner")
+							banner_obj.style.cssText = "background: url('" + pre_show_image_url + "') no-repeat; background-size: cover;"
+
+							vvd_banner_obj = document.getElementById("vvd_banner_img")
+
+							vvd_banner_content = "<img id='banner_img_item' src='" + pre_show_image_url + "' style='height: 100%; position: fixed; z-index: -999'>"
+							vvd_banner_obj.innerHTML = vvd_banner_content
+
+							video_html_res = "<video id='video_item' style='position: fixed; z-index: -888;'  muted='muted' src=" + video_url + " autoplay='autoplay' loop='loop'></video>"
+							document.getElementById("banner_video_insert").innerHTML = video_html_res;
+
+							set_video_attr('video_item')
+							set_video_attr('banner_img_item')
+						}
+					});
+
+					if (!isMobile){
+						window.onresize = function(){
+							set_video_attr('video_item')
+							}
+						}
+				</script>
+      
+
+      
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Selenium的CSS层叠样式表选择器（二）"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-01-07 14:54" pubdate>
+          星期二, 一月 7日 2025, 2:54 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          2.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          24 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+  </header>
+
+  <main>
+ 
+
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Selenium的CSS层叠样式表选择器（二）</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="Selenium的CSS层叠样式表选择器（二）"><a href="#Selenium的CSS层叠样式表选择器（二）" class="headerlink" title="Selenium的CSS层叠样式表选择器（二）"></a><strong>Selenium的CSS层叠样式表选择器（二）</strong></h2><p><strong>实验目的：</strong>了解CSS Selector的选择语法的联合使用方法，掌握组选择、按顺序选择子节点和兄弟节点选择的方法。能够使用CSS 选择器选择语法的联合使用完成要求的元素定位。</p>
+<p><strong>实验要求：</strong>在pycharm 环境下完成实验目的中所述各项任务 </p>
+<p><strong>实验条件：</strong>win7&#x2F;10、pycharm、selenium4.4.0 </p>
+<p><strong>实验内容及步骤：</strong></p>
+<p>使用CSS选择器选择元素时，是具有很强的灵活性的。比如，要选择界面中的一个元素，既可以使用它的某个唯一的属性值，也可以根据父子关系按照层级定位它。CSS选择器除了具有灵活性外，另一个强大之处在于：选择语法可以联合使用。</p>
+<p>一、 组选择：同时选择多个元素，各个选择条件用逗号（,）隔开，允许逗号两端的属性不一致</p>
+<p>如果要同时选择所有class名 为 plant 和 animal 的元素，则应写为： </p>
+<p><code>find_element(By.CSS_SELECTOR, &#39;.plant, .animal&#39;)</code></p>
+<p>注意：通过组选择能够完成同时选择多个元素的工作，其选中元素不是按照组表达式的次序排序的，而是先选择出符合这些表达式的元素，然后按照它们在HTML文档中的出现的次序排列。</p>
+<ol>
+<li>在浏览器中打开百度新闻<a target="_blank" rel="noopener" href="https://news.baidu.com/%E7%BD%91%E7%AB%99%EF%BC%8C%E9%80%89%E6%8B%A9%E2%80%9C%E7%83%AD%E7%82%B9%E8%A6%81%E9%97%BB%E2%80%9D%E6%A0%8F%E7%9B%AE%E4%B8%AD%E7%9A%84class%E5%90%8D">https://news.baidu.com/网站，选择“热点要闻”栏目中的class名</a> 为 focuslistnews 和 hotnews的元素，计算满足此条件的元素共有多少项，输出：“热点要闻栏目中有XX项焦点列表和热点新闻项”。使用<code>qiut()</code>关闭浏览器。</li>
+</ol>
+<p>二、 按次序选择子节点：（练习网页：<a target="_blank" rel="noopener" href="https://cdn2.byhy.net/files/selenium/sample1b.html">https://cdn2.byhy.net/files/selenium/sample1b.html</a> ）</p>
+<p><img src="/img/selenium/se03-00.jpg" srcset="/img/loading.gif" lazyload alt="选择子节点">指定选择的元素是父元素的第几个子节点，语法为 :nth-child()，括号中填写第几个子节点的数字。</p>
+<p>例如：要选择唐诗和宋词的第一个作者，也就是选择第2个子元素，且为span类型，CSS Selector表达式可写为：</p>
+<p><code>span:nth-child(2)</code> </p>
+<p>或 </p>
+<p><code>\#t1  :nth-child(2) , #t2  :nth-child(2)</code></p>
+<p>又或者</p>
+<p><code>\#t1 &gt; :nth-child(2) , #t2 &gt; :nth-child(2)</code></p>
+<p>指定选择的元素 是父元素的倒数第几个子节点，语法为 :<code>nth-last-child()</code>，括号中填写第几个子节点的数字。</p>
+<p>例如：要选择最后一首唐诗和宋词的题目，CSS Selector表达式可写为：<code>p:nth-last-child(1)</code></p>
+<p>指定选择的元素是父元素第几个某类型的子节点，语法为 :nth-of-type()，括号中填写第几个子节点的数字。</p>
+<p>例如：要使用类型限定选择唐诗和宋词的第一个作者，由于它们是父元素下第一个span类型的子元素，所以CSS Selector表达式可写为： <code>span:nth-of-type(1)</code></p>
+<p>指定选择的元素是父元素倒数第几个某类型的子节点，语法为 <code>:nth-last-of-type()</code>，括号中填写第几个子节点的数字。</p>
+<p>例如：要选择唐诗和宋词的倒数第一个作者，CSS Selector表达式可写为： <code>span:nth-last-of-type(1)</code></p>
+<p>指定选择的元素是父元素的奇数或偶数的子节点，语法为 <code>:nth-child(odd)</code> 及 <code>:nth-child(even)</code></p>
+<p>例如：<code>#t1  :nth-child(odd)</code></p>
+<p>指定选择的元素 是父元素某种类型的奇数或偶数的子节点，语法为 <code>:nth-of-type(odd)</code> 及 <code>:nth-of-type(even)</code></p>
+<p>例如：<code>#t2  p:nth-of-type(even)</code></p>
+<ol start="2">
+<li>在上个操作步骤的关闭浏览器之前，添加：按照次序选择子节点的任意两种不同的方式，完成对“热点要闻”栏目中的class名为hotnews的元素中的第四个新闻标题的获取，并输出显示文本信息。</li>
+</ol>
+<p>三、 兄弟节点选择：</p>
+<p>相邻兄弟节点选择，就是选择一个元素平级的后面紧跟着的兄弟节点，相邻关系语法用加号+表示。</p>
+<p>例如：要选择唐诗和宋词的第一个作者，因为唐诗和宋词的标签名都是h3，紧跟着它的平级兄弟节点span就是作者，所以CSS Selector表达式可以写为：<code>h3 + span</code></p>
+<p>也就是选择紧跟 <code>&lt;h3&gt;</code> 元素的首个 <code>&lt;span&gt;</code> 元素</p>
+<p>后续所有兄弟节点选择，用波浪线~表示。</p>
+<p>例如：要选择唐诗和宋词的所有作者，CSS Selector表达式可以写为：<code>h3 ~ span</code></p>
+<ol start="3">
+<li><p>在上个操作步骤的关闭浏览器之前，添加：按照兄弟节点选择方式，完成对“热点要闻”栏目中的class名为hotnews的元素的相邻兄弟节点的选择，并输出此兄弟节点的全部可见文本。</p>
+</li>
+<li><p>完成上述三个实验步骤(1，2，3)，提交代码</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.by <span class="keyword">import</span> By</span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line"><span class="comment"># 练习一</span></span><br><span class="line">driver.get(<span class="string">&quot;https://news.baidu.com/&quot;</span>)</span><br><span class="line">focuslistnews_items = driver.find_elements(By.CSS_SELECTOR,<span class="string">&#x27;.focuslistnews , .hotnews&#x27;</span>)</span><br><span class="line"><span class="comment"># 计算满足条件的元素数量</span></span><br><span class="line">total_items = <span class="built_in">len</span>(focuslistnews_items)</span><br><span class="line"><span class="comment"># 输出计算结果</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;热点要闻栏目中有<span class="subst">&#123;total_items&#125;</span>项焦点列表和热点新闻项&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;###################################&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 练习二</span></span><br><span class="line"><span class="comment">#1. 父元素的第几个子节点</span></span><br><span class="line">hotnews_items = driver.find_element(By.CSS_SELECTOR, <span class="string">&#x27;.hotnews&#x27;</span>)</span><br><span class="line">title4_text = hotnews_items.find_element(By.CSS_SELECTOR, <span class="string">&quot;ul&gt;li:nth-child(4)&quot;</span>).text</span><br><span class="line"><span class="comment"># 输出第四个标题的文本信息</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;热点要闻中第四个新闻标题为：<span class="subst">&#123;title4_text&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#2.父元素第几个某类型的子节点</span></span><br><span class="line">hotnews_items = driver.find_element(By.CSS_SELECTOR, <span class="string">&#x27;.hotnews&#x27;</span>)</span><br><span class="line">title4_text = hotnews_items.find_element(By.CSS_SELECTOR, <span class="string">&quot;ul &gt; li:nth-of-type(4)&quot;</span>).text</span><br><span class="line"><span class="comment"># 输出第四个标题的文本信息</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;热点要闻中第四个新闻标题为：<span class="subst">&#123;title4_text&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#3.通过子元素类型，父元素获取子元素的方法</span></span><br><span class="line">hotnews_items = driver.find_elements(By.CSS_SELECTOR, <span class="string">&#x27;.hotnews&#x27;</span>)</span><br><span class="line">hotnews_element = hotnews_items[<span class="number">0</span>]</span><br><span class="line">hotnews_titles = hotnews_element.find_elements(By.TAG_NAME, <span class="string">&quot;li&quot;</span>)</span><br><span class="line">title4_text = hotnews_titles[<span class="number">3</span>].text</span><br><span class="line"><span class="comment"># 输出第四个标题的文本信息</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;热点要闻中第四个新闻标题为：<span class="subst">&#123;title4_text&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#4.通过索引获取子元素的方法</span></span><br><span class="line">hotnews_element = hotnews_items[<span class="number">0</span>]</span><br><span class="line">title4_text = hotnews_element.find_element(By.XPATH, <span class="string">&quot;./ul/li[4]&quot;</span>).text</span><br><span class="line"><span class="comment"># 输出第四个标题的文本信息</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;热点要闻中第四个新闻标题为：<span class="subst">&#123;title4_text&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;###################################&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 练习三</span></span><br><span class="line"><span class="comment"># 查找热点要闻元素的相邻兄弟元素</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用CSS选择器（元素+元素）</span></span><br><span class="line">sibling_element = driver.find_element(By.CSS_SELECTOR, <span class="string">&#x27;.hotnews+ul&#x27;</span>)</span><br><span class="line"><span class="comment"># 输出相邻的兄弟元素的全部可见文本</span></span><br><span class="line"><span class="built_in">print</span>(sibling_element.text)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用XPATH</span></span><br><span class="line"><span class="comment"># hotnews_element = driver.find_element(By.CSS_SELECTOR, &#x27;.hotnews&#x27;)</span></span><br><span class="line"><span class="comment"># sibling_element = hotnews_element.find_element(By.XPATH, &quot;./following-sibling::*[1]&quot;)</span></span><br><span class="line"><span class="comment"># 输出相邻兄弟元素的全部可见文本</span></span><br><span class="line"><span class="comment"># print(f&quot;热点要闻元素的相邻兄弟元素的全部可见文本为：&#123;sibling_element.text&#125;&quot;)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭浏览器</span></span><br><span class="line">driver.quit()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li>在浏览器中打开：京东商城网页<a target="_blank" rel="noopener" href="https://www.jd.com/%EF%BC%8C%E5%BA%94%E7%94%A8%E6%8C%89%E7%85%A7%E6%AC%A1%E5%BA%8F%E9%80%89%E6%8B%A9%E5%85%83%E7%B4%A0%E7%9A%84%E6%96%B9%E6%B3%95%E5%8E%BB%E6%A3%80%E6%9F%A5%E9%A1%B5%E9%9D%A2%E5%B7%A6%E4%BE%A7%E5%AF%BC%E8%88%AA%E6%A0%8F%E4%B8%AD%E6%98%AF%E5%90%A6%E6%9C%89%E5%A6%82%E4%B8%8B%E8%8F%9C%E5%8D%95%EF%BC%9A%E2%80%9C%E5%AE%B6%E7%94%A8%E7%94%B5%E5%99%A8|%E7%94%B5%E8%84%91">https://www.jd.com/，应用按照次序选择元素的方法去检查页面左侧导航栏中是否有如下菜单：“家用电器|电脑</a> &#x2F; 办公|男装 &#x2F; 女装 &#x2F; 童装 &#x2F; 内衣|女鞋 &#x2F; 箱包 &#x2F; 钟表 &#x2F; 珠宝|房产 &#x2F; 汽车 &#x2F; 汽车用品|食品 &#x2F; 酒类 &#x2F; 生鲜 &#x2F; 特产|医药保健 &#x2F; 计生情趣|机票 &#x2F; 酒店 &#x2F; 旅游 &#x2F; 生活|安装 &#x2F; 维修 &#x2F; 清洗 &#x2F; 二手”，再使用兄弟节点选择方法定位页面头部导航栏中“京东超市”后三项菜单是否为“秒杀”、“便宜包邮”、“京东生鲜”，输出检查结果。关闭浏览器。</li>
+</ol>
+<h4 id="提交代码"><a href="#提交代码" class="headerlink" title="提交代码"></a>提交代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.by <span class="keyword">import</span> By</span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line">driver.get(<span class="string">&#x27;https://www.jd.com/&#x27;</span>)</span><br><span class="line"><span class="comment"># 1：检查左侧导航栏中是否有指定菜单</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">menu_list = [<span class="string">&quot;家用电器&quot;</span>, <span class="string">&quot;电脑&quot;</span>, <span class="string">&quot;男装&quot;</span>, <span class="string">&quot;女装&quot;</span>, <span class="string">&quot;童装&quot;</span>, <span class="string">&quot;内衣&quot;</span>, <span class="string">&quot;女鞋&quot;</span>, <span class="string">&quot;箱包&quot;</span>, <span class="string">&quot;钟表&quot;</span>, <span class="string">&quot;珠宝&quot;</span>,</span><br><span class="line">             <span class="string">&quot;房产&quot;</span>, <span class="string">&quot;汽车&quot;</span>, <span class="string">&quot;汽车用品&quot;</span>, <span class="string">&quot;食品&quot;</span>, <span class="string">&quot;酒类&quot;</span>, <span class="string">&quot;生鲜&quot;</span>, <span class="string">&quot;特产&quot;</span>, <span class="string">&quot;医药保健&quot;</span>, <span class="string">&quot;计生情趣&quot;</span>, <span class="string">&quot;机票&quot;</span>,</span><br><span class="line">             <span class="string">&quot;酒店&quot;</span>, <span class="string">&quot;旅游&quot;</span>, <span class="string">&quot;生活&quot;</span>, <span class="string">&quot;安装&quot;</span>, <span class="string">&quot;维修&quot;</span>, <span class="string">&quot;清洗&quot;</span>, <span class="string">&quot;二手&quot;</span>]</span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> menu_list:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        element = driver.find_elements(By.CSS_SELECTOR, <span class="string">f&quot;#J_cate &gt; ul&gt; li[title=&#x27;<span class="subst">&#123;item&#125;</span>&#x27;]&quot;</span>)</span><br><span class="line">        <span class="comment"># J_cate//*[@id=&quot;J_cate&quot;]/ul</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;找到菜单：<span class="subst">&#123;item&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;未找到菜单：<span class="subst">&#123;item&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;##############################################################&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2：检查头部导航栏中指定菜单后三项是否正确</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#CSS后兄弟节点选择</span></span><br><span class="line"></span><br><span class="line">brother_menus = [<span class="string">&quot;秒杀&quot;</span>, <span class="string">&quot;便宜包邮&quot;</span>, <span class="string">&quot;京东生鲜&quot;</span>]</span><br><span class="line">array=[]</span><br><span class="line"></span><br><span class="line">target_element = driver.find_elements(By.CSS_SELECTOR, <span class="string">&quot;#navitems-group1 &gt; li.fore1~li&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> element <span class="keyword">in</span> target_element:</span><br><span class="line">    array.append(element.text)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">    <span class="keyword">if</span> array[i] == brother_menus[i]:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;第<span class="subst">&#123;i+<span class="number">1</span>&#125;</span>个：<span class="subst">&#123;brother_menus[i]&#125;</span>检查通过！&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">     <span class="built_in">print</span>(<span class="string">&quot;检查未通过&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># XPATH</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># try:</span></span><br><span class="line"><span class="comment">#     target_element = driver.find_element(By.XPATH, &quot;//a[contains(text(), &#x27;京东超市&#x27;)]/following-sibling::a[1]&quot;)</span></span><br><span class="line"><span class="comment">#     for i in range(3):</span></span><br><span class="line"><span class="comment">#         element_text = target_element.get_attribute(&quot;text&quot;)</span></span><br><span class="line"><span class="comment">#         if element_text == brother_menus[i]:</span></span><br><span class="line"><span class="comment">#             print(f&quot;第&#123;i + 1&#125;个菜单：&#123;element_text&#125;，检查通过！&quot;)</span></span><br><span class="line"><span class="comment">#         else:</span></span><br><span class="line"><span class="comment">#             print(f&quot;第&#123;i + 1&#125;个菜单：&#123;element_text&#125;，检查未通过！&quot;)</span></span><br><span class="line"><span class="comment">#         # target_element = target_element.find_element(By.CSS_SELECTOR, &quot;+ li&quot;)</span></span><br><span class="line"><span class="comment"># except:</span></span><br><span class="line"><span class="comment">#     print(&quot;找不到京东超市菜单！&quot;)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭浏览器</span></span><br><span class="line">driver.quit()</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>应用选择语法的联合使用方法编写测试用例：以管理员身份登录 <a target="_blank" rel="noopener" href="http://127.0.0.1:8047/mgr/sign.html%EF%BC%8C%E7%94%A8%E6%88%B7%E5%90%8D">http://127.0.0.1:8047/mgr/sign.html，用户名</a> ：byhy 密码： 88888888。点击添加药品，输入正确格式的药品名、编号和描述，点击创建。预期结果为：成功登录后，检查药品列表第一项结果中 药品名、编号和描述都是正确的。 </p>
+<h4 id="提交代码-1"><a href="#提交代码-1" class="headerlink" title="提交代码"></a>提交代码</h4></li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.by <span class="keyword">import</span> By</span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line"><span class="comment"># 打开待测试环境</span></span><br><span class="line">driver.get(<span class="string">&#x27;http://127.0.0.1:8047/mgr/sign.html&#x27;</span>)</span><br><span class="line">elementuser = driver.find_element(By.ID, <span class="string">&#x27;username&#x27;</span>)</span><br><span class="line">elementuser.send_keys(<span class="string">&#x27;byhy&#x27;</span>)</span><br><span class="line">elementpass = driver.find_element(By.ID, <span class="string">&#x27;password&#x27;</span>)</span><br><span class="line">elementpass.send_keys(<span class="string">&#x27;88888888&#x27;</span>)</span><br><span class="line">elementbutton=driver.find_element(By.TAG_NAME, <span class="string">&#x27;button&#x27;</span>).click()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sleep(<span class="number">3</span>)</span><br><span class="line"><span class="comment"># 创建药品</span></span><br><span class="line"><span class="comment"># 点击菜单栏药品，进入药品信息页面</span></span><br><span class="line">medicines_menu = driver.find_element(By.XPATH, <span class="string">&#x27;//*[@id=&quot;root&quot;]/aside/section/ul/li[3]/a&#x27;</span>).click()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 找到添加药品按钮并点击</span></span><br><span class="line">medicines_button = driver.find_element(By.CSS_SELECTOR, <span class="string">&#x27;#root &gt; div &gt; section.content.container-fluid &gt; div.col-lg-12.col-md-12.col-sm-12.add-one-area &gt; button&#x27;</span>).click()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入药品信息，药品名，编号，描述</span></span><br><span class="line">medicines_name = driver.find_element(By.CSS_SELECTOR,<span class="string">&#x27;.col-lg-8&gt;:nth-child(1)&gt;input&#x27;</span>).send_keys(<span class="string">&#x27;阿莫西林&#x27;</span>)</span><br><span class="line">medicines_number = driver.find_element(By.CSS_SELECTOR,<span class="string">&#x27;.col-lg-8&gt;:nth-child(2)&gt;input&#x27;</span>).send_keys(<span class="string">&#x27;CAS : 26787-78-0&#x27;</span>)</span><br><span class="line">medicines_describe = driver.find_element(By.CSS_SELECTOR,<span class="string">&#x27;.col-lg-8&gt;:nth-child(3)&gt;textarea&#x27;</span>).send_keys(<span class="string">&#x27;阿莫西林片：0.125 g；0.25 g。&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 点击创建按钮</span></span><br><span class="line">create_button = driver.find_element(By.CSS_SELECTOR,<span class="string">&#x27;.col-lg-12&gt;.btn-xs:nth-child(1)&#x27;</span>).click()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 点击取消按钮</span></span><br><span class="line"><span class="comment"># sleep(1)</span></span><br><span class="line"><span class="comment"># create_button = driver.find_element(By.CSS_SELECTOR, &#x27;.content&gt;.col-lg-12&gt;.col-lg-12 button:nth-child(2)&#x27;)</span></span><br><span class="line"><span class="comment"># create_button.click()</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 实际结果</span></span><br><span class="line">actual_result = []</span><br><span class="line"><span class="comment"># actual_result = &#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定位左侧菜单栏</span></span><br><span class="line">elements = driver.find_elements(By.CSS_SELECTOR, <span class="string">&#x27;#root &gt; div &gt; section.content.container-fluid &gt; div:nth-child(3)&gt; *&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> element <span class="keyword">in</span> elements:</span><br><span class="line">    actual_result.append(element.text)</span><br><span class="line">actual_result.remove(actual_result[-<span class="number">1</span>])</span><br><span class="line">new_string_array = [s[<span class="number">3</span>:] <span class="keyword">for</span> s <span class="keyword">in</span> actual_result]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(new_string_array)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 预期结果</span></span><br><span class="line">expected_result = [<span class="string">&#x27;阿莫西林&#x27;</span>,<span class="string">&#x27;CAS : 26787-78-0&#x27;</span>,<span class="string">&#x27;阿莫西林片：0.125 g；0.25 g。&#x27;</span>]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;预期结果为： &#x27;</span>, expected_result)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过try抛出异常进行断言判断</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">assert</span> expected_result == new_string_array</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;PASS,实际结果与预期结果一致!&#x27;</span>)</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;FAIL,实际结果与预期结果不一致!&#x27;</span>, <span class="built_in">format</span>(e))</span><br><span class="line"></span><br><span class="line"><span class="comment"># sleep(1)</span></span><br><span class="line">driver.quit()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+                
+              </div>
+            
+            <hr/>
+
+
+            <!-- 添加打赏模块 -->
+            <div class="reward-container">
+              
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/selenium/" class="category-chain-item">selenium</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Selenium的CSS层叠样式表选择器（二）</div>
+      <div>http://example.com/2025/01/07/测试笔记/selenium/selenium04/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Helios</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年1月7日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/01/07/%E6%B5%8B%E8%AF%95%E7%AC%94%E8%AE%B0/selenium/selenium03/" title="Selenium的CSS层叠样式表选择器（一）">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Selenium的CSS层叠样式表选择器（一）</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/01/07/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0/HTML/html00/" title="前端收集">
+                        <span class="hidden-mobile">前端收集</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+  <script  src="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script type="text/javascript">
+  /* Fancybox */
+  var setupFancybox = function () {
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(function() {
+    var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      $(this).wrap(element);
+    });
+  };
+  setupFancybox();
+  </script>
+
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+      <div class="col-lg-7 mx-auto nopadding-x-md">
+        <div class="container custom mx-auto">
+           <!-- require APlayer --> <!--<link rel="stylesheet" href="/js/customize/aplayer/APlayer.min.css">--> <!--<div id="aplayer"></div>--> <!--<script type="text/javascript" src="/js/customize/aplayer/APlayer.min.js"></script>--> <!--<script type="text/javascript" src="/js/customize/aplayer/music.js"></script>--> <!-- require MetingJS --> <!--<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>--> <!--<meting-js--> <!--  auto="https://y.qq.com/n/yqq/song/001RGrEX3ija5X.html">  --> <!--server = "netease"--> <!--type = "playlist"--> <!--id = "5349753401">--> <!--</meting-js>--> 
+        </div>
+      </div>
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Helios</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/customize/custom.js"></script> </div> 
+    </div>
+  
+  
+    
+<div class="statistics">
+  
+  
+   
+</div>
+  <div class="statistics">
+    <a target="_blank" rel="noopener" href="https://developer.hitokoto.cn/" id="hitokoto_text"><span style="color: #DDD;"  id="hitokoto"></span></a>
+    <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+  </div>
+  
+  
+  
+</div>
+
+<!-- 页脚繁体简体切换 -->
+<div class="translate-style">
+  繁/简：<a id="translateLink" href="javascript:translatePage();">繁体
+  </a>
+  </div>
+  <script type="text/javascript" src="/js/tw_cn.js"></script>
+  <script type="text/javascript">
+  var defaultEncoding = 2; //网站编写字体是否繁体，1-繁体，2-简体
+  var translateDelay = 0; //延迟时间,若不在前, 要设定延迟翻译时间, 如100表示100ms,默认为0
+  var cookieDomain = "https://1han.wiki/"; //Cookie地址, 一定要设定, 通常为你的网址
+  var msgToTraditionalChinese = "繁体"; //此处可以更改为你想要显示的文字
+  var msgToSimplifiedChinese = "简体"; //同上，但两处均不建议更改
+  var translateButtonId = "translateLink"; //默认互换id
+  translateInitilization();
+  </script>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  
+<script src="/js/custom.js"></script>
+<script src="/scripts/ingect.js"></script>
+<script src="/js/right_menu.js"></script>
+<script src="/js/loading.js"></script>
+<script src="/js/customize/code/prism.js"></script>
+<script src="/js/customize/xiantiao.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/runtime.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/Cherry.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/star.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/love.min.js"></script>
+<script src="/js/customize/aplayer/APlayer.min.js"></script>
+<script src="/js/customize/Meting.js"></script>
+<script src="/js/customize/music.js"></script>
+<script src="//cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  <div id="tooltip-rightmenu" class="tooltip-rightmenu">如需原始右键菜单请按下 <strong>Ctrl+右键</strong></div>
+
+<div id="rightmenu-wrapper" style="display: block;">
+  <ul class="list-v rightmenu" id="rightmenu-content">
+	  <li class="navigation menuNavigation-Content">
+		<a class="nav icon-only fix-cursor-default" onclick="history.back()"><i class="iconfont icon-zuojiantou1"></i></a>
+		<a class="nav icon-only fix-cursor-default" onclick="history.forward()"><i class="iconfont icon-youjiantou1"></i></a>
+		<a class="nav icon-only fix-cursor-default" onclick="window.location.reload()"><i class="iconfont icon-shuaxin"></i></a>
+		<a  aria-label="TOP" href="#" role="button"><i class="iconfont icon-xiangshang"></i></a>
+	  </li>
+
+		<hr class="menuLoad-Content" style="display: block;">
+	  <li class="menuLoad-Content" style="display: block;">
+		<a class="vlts-menu fix-cursor-default" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+		  <span>
+			  <i class="iconfont icon-sousuo1 rightmenu-icon"></i>
+			  站内搜索
+		  </span>
+		</a>
+	  </li>
+
+	  <li class="menuLoad-Content" style="display: block;">
+		<a class="vlts-menu fix-cursor-default"  target="_blank" rel="noopener" href="https://www.zywvvd.com/messagebd/" data-group="link">
+		  <span>
+			  <i class="iconfont icon-yangshi_icon_tongyong_chat rightmenu-icon">  </i>
+			   留言吐槽 
+		   </span>
+		</a>
+	  </li>
+
+
+	  <li class="menuLoad-Content" style="display: block;">
+		<a class="vlts-menu fix-cursor-default" id="help" target="_blank" rel="noopener" href="https://www.foreverblog.cn/go.html" data-group="link">
+		<span>
+			  <i class="iconfont icon-a-BlackHole rightmenu-icon"></i>
+			  虫洞穿梭
+		  </span>
+		</a>
+	  </li>
+
+	<a id="scroll-top-button" aria-label="TOP" href="#" role="button" style="bottom: 20px; right: 52.6364px;">
+        <i class="iconfont icon-xiangshangjiantou" aria-hidden="true"></i>
+      </a>
+
+	<hr class="menuLoad-Content" style="display: block;">
+	
+
+  </ul>
+</div>
+
+<link href="/css/custom.css"type="text/css"rel="stylesheet"/>
+<script src="/vvd_js/right_menu.js" type="text/javascript"></script>
+<link href="/css/right_menu.css"type="text/css"rel="stylesheet"/>
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start --><script src="/js/customize/postshixiaoxing.js"></script><script src="/js/customize/zdy.js"></script>
+  <div id="aplayer"></div>
+  <link defer rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css" />
+  <script src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js"></script>
+  <script defer src="/js/aplayer.js"></script>
+<script src="/js/customize/backgroundize.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

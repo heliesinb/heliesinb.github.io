@@ -1,0 +1,1829 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+  <script type="text/javascript" src="../source/js/jquery.js"></script>
+  
+  <!--浏览器搞笑标题-->
+  <script type="text/javascript" src="../source/js/FunnyTitle.js"></script>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Helios">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="前端收集在前端路上摸索前行，在这里分享自己长期关注的前端开发相关的优秀网站、博客、以及活跃开发者。欢迎更新。 &#x3D;&#x3D;&#x3D;&#x3D; ####聚合&amp;&amp;周报订阅    名称 订阅地址 介绍    Html5 Weekly http:&#x2F;&#x2F;html5weekly.com&#x2F; Html 技术类   CSS Weekly http:&#x2F;&#x2F;css-weekly.com&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端收集">
+<meta property="og:url" content="http://example.com/2025/01/07/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0/HTML/html00/index.html">
+<meta property="og:site_name" content="Helios&#39;blog">
+<meta property="og:description" content="前端收集在前端路上摸索前行，在这里分享自己长期关注的前端开发相关的优秀网站、博客、以及活跃开发者。欢迎更新。 &#x3D;&#x3D;&#x3D;&#x3D; ####聚合&amp;&amp;周报订阅    名称 订阅地址 介绍    Html5 Weekly http:&#x2F;&#x2F;html5weekly.com&#x2F; Html 技术类   CSS Weekly http:&#x2F;&#x2F;css-weekly.com&#x2F;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/selenium.png">
+<meta property="article:published_time" content="2025-01-07T05:50:36.277Z">
+<meta property="article:modified_time" content="2025-01-07T06:10:51.350Z">
+<meta property="article:author" content="Helios">
+<meta property="article:tag" content="前端笔记">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/selenium.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>前端收集 - Helios&#39;blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/shubiao.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/gradient.css">
+<link rel="stylesheet" href="/css/right_menu.css">
+<link rel="stylesheet" href="/css/loading.css">
+<link rel="stylesheet" href="/js/customize/aplayer/APlayer.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<link rel="stylesheet" href="/js/customize/code/prism.css">
+
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"python"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+
+
+
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Helios'blog" type="application/atom+xml">
+</head>
+
+
+<body><!-- hexo injector body_begin start --><div id="web_bg"></div><!-- hexo injector body_begin end -->
+  <!-- 视频背景插入 -->
+  <div id="banner_video_insert">
+	</div>	
+	<div>
+		<div class='real_mask'></div>
+		<div id="banner_video_insert">
+		</div>	
+		<div id='vvd_banner_img'>
+		</div>
+	</div>
+
+  <div id="Loadanimation" style="z-index:999999;">
+    <div id="Loadanimation-center">
+       <div id="Loadanimation-center-absolute">
+           <div class="xccx_object" id="xccx_four"></div>
+           <div class="xccx_object" id="xccx_three"></div>
+           <div class="xccx_object" id="xccx_two"></div>
+           <div class="xccx_object" id="xccx_one"></div>
+       </div>
+    </div>
+    </div>
+    
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>HeliosのBlog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-shuji1"></i>
+                <span>文章</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/archives/" target="_self">
+                    <i class="iconfont icon-archive-fill"></i>
+                    <span>归档</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/" target="_self">
+                    <i class="iconfont icon-category-fill"></i>
+                    <span>分类</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/" target="_self">
+                    <i class="iconfont icon-tags-fill"></i>
+                    <span>标签</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                <span>主题文档</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://hexo.fluid-dev.com/" target="_self">
+                    <i class="iconfont icon-brush"></i>
+                    <span>主题博客</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://hexo.fluid-dev.com/docs/guide/" target="_self">
+                    <i class="iconfont icon-top"></i>
+                    <span>配置指南</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://hexo.fluid-dev.com/docs/icon/" target="_self">
+                    <i class="iconfont icon-note"></i>
+                    <span>图标用法</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-slack-fill"></i>
+                <span>应用</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/yinyong/calculator/" target="_self">
+                    <i class="iconfont icon-brush"></i>
+                    <span>计算器</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-momo"></i>
+                <span>社交</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/links/" target="_self">
+                    <i class="iconfont icon-link-fill"></i>
+                    <span>友链</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/about/" target="_self">
+                    <i class="iconfont icon-user-fill"></i>
+                    <span>关于</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/messagebd/" target="_self">
+                    <i class="iconfont icon-comment"></i>
+                    <span>留言板</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<!-- <script type="text/javascript" src="../source/js/jquery.js"></script> -->
+  
+<!--浏览器搞笑标题-->
+<script type="text/javascript" src="../source/js/FunnyTitle.js"></script>
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/none.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    
+      <div id="banner_video_insert">
+      </div>
+
+      <script>
+     	var ua = navigator.userAgent;
+					var ipad = ua.match(/(iPad).*OS\s([\d_]+)/),
+						isIphone = !ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/),
+						isAndroid = ua.match(/(Android)\s+([\d.]+)/),
+						isMobile = isIphone || isAndroid;
+
+					function set_video_attr(id){
+
+						var height = document.body.clientHeight
+						var width = document.body.clientWidth
+						var video_item = document.getElementById(id);
+
+						if (height / width < 0.56){
+							video_item.setAttribute('width', '100%');
+							video_item.setAttribute('height', 'auto');
+						} else {
+							video_item.setAttribute('height', '100%');
+							video_item.setAttribute('width', 'auto');
+						}
+					}
+
+					$.getJSON('/js/video.json', function(data){
+						if (!isMobile){
+							var video_list_length = data.length
+							var seed = Math.random()
+							index = Math.floor(seed * video_list_length)
+							
+							video_url = data[index][0]
+							pre_show_image_url = data[index][1]
+							
+							banner_obj = document.getElementById("banner")
+							banner_obj.style.cssText = "background: url('" + pre_show_image_url + "') no-repeat; background-size: cover;"
+
+							vvd_banner_obj = document.getElementById("vvd_banner_img")
+
+							vvd_banner_content = "<img id='banner_img_item' src='" + pre_show_image_url + "' style='height: 100%; position: fixed; z-index: -999'>"
+							vvd_banner_obj.innerHTML = vvd_banner_content
+
+							video_html_res = "<video id='video_item' style='position: fixed; z-index: -888;'  muted='muted' src=" + video_url + " autoplay='autoplay' loop='loop'></video>"
+							document.getElementById("banner_video_insert").innerHTML = video_html_res;
+
+							set_video_attr('video_item')
+							set_video_attr('banner_img_item')
+						}
+					});
+
+					if (!isMobile){
+						window.onresize = function(){
+							set_video_attr('video_item')
+							}
+						}
+				</script>
+      
+
+      
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="前端收集"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-01-07 13:50" pubdate>
+          星期二, 一月 7日 2025, 1:50 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          1.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          16 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+  </header>
+
+  <main>
+ 
+
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">前端收集</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="前端收集"><a href="#前端收集" class="headerlink" title="前端收集"></a>前端收集</h1><p>在前端路上摸索前行，在这里分享自己长期关注的前端开发相关的优秀网站、博客、以及活跃开发者。欢迎更新。</p>
+<p>&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<p>####聚合&amp;&amp;周报订阅</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>订阅地址</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Html5 Weekly</td>
+<td><a target="_blank" rel="noopener" href="http://html5weekly.com/">http://html5weekly.com/</a></td>
+<td>Html 技术类</td>
+</tr>
+<tr>
+<td>CSS Weekly</td>
+<td><a target="_blank" rel="noopener" href="http://css-weekly.com/">http://css-weekly.com/</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Javascript Weekly</td>
+<td><a target="_blank" rel="noopener" href="http://javascriptweekly.com/">http://javascriptweekly.com/</a></td>
+<td>JS相关，同样有 html,css 和工具相关</td>
+</tr>
+<tr>
+<td>Web Design Weekly</td>
+<td><a target="_blank" rel="noopener" href="http://web-design-weekly.com/">http://web-design-weekly.com/</a></td>
+<td>设计、技术、技巧、工具聚合</td>
+</tr>
+<tr>
+<td>UX Weekly</td>
+<td><a target="_blank" rel="noopener" href="http://uxwkly.com/">http://uxwkly.com/</a></td>
+<td>用户体验、网页设计推送</td>
+</tr>
+<tr>
+<td>Web Tools Weekly</td>
+<td><a target="_blank" rel="noopener" href="http://webtoolsweekly.com/">http://webtoolsweekly.com/</a></td>
+<td>Js，工具推送</td>
+</tr>
+<tr>
+<td>RESPONSIVE DESIGN NEWSLETTER</td>
+<td><a target="_blank" rel="noopener" href="http://responsivedesignweekly.com/">http://responsivedesignweekly.com/</a></td>
+<td>每周推送一次响应式设计相关</td>
+</tr>
+<tr>
+<td>Tutorialzine</td>
+<td><a target="_blank" rel="noopener" href="http://tutorialzine.com/">http://tutorialzine.com/</a></td>
+<td>精品教程和资源推送</td>
+</tr>
+<tr>
+<td>Sidebar</td>
+<td><a target="_blank" rel="noopener" href="http://sidebar.io/">http://sidebar.io/</a></td>
+<td>每天、每半周、每周推送5条设计相关</td>
+</tr>
+<tr>
+<td>The Hacker News Newsletter</td>
+<td><a target="_blank" rel="noopener" href="http://www.hackernewsletter.com/">http://www.hackernewsletter.com/</a></td>
+<td>HN 每周精选</td>
+</tr>
+<tr>
+<td>Design News</td>
+<td><a target="_blank" rel="noopener" href="https://news.layervault.com/">https://news.layervault.com/</a></td>
+<td>F2类资讯聚合</td>
+</tr>
+<tr>
+<td>HACKDESIGN</td>
+<td><a target="_blank" rel="noopener" href="http://hackdesign.org/">http://hackdesign.org/</a></td>
+<td>每周发布一个设计类课程</td>
+</tr>
+<tr>
+<td>中文推送</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SegmentFault精选</td>
+<td><a target="_blank" rel="noopener" href="http://segmentfault.com/">http://segmentfault.com/</a></td>
+<td>国内开发者技术问答社区每周精选问答</td>
+</tr>
+<tr>
+<td>FE Weekly</td>
+<td><a target="_blank" rel="noopener" href="http://www.feweekly.com/">http://www.feweekly.com/</a></td>
+<td>每周一次，内容主要是英文的，不过有中文导读</td>
+</tr>
+<tr>
+<td>EchoJs_News</td>
+<td><a target="_blank" rel="noopener" href="http://www.echojs.com/">http://www.echojs.com/</a></td>
+<td>每天推送若干好文，都是英文的，JS技术类</td>
+</tr>
+</tbody></table>
+<p>####专业博客</p>
+<p>注:此处<code>活跃度</code>为博客更新频率，<code>原创度</code>指的是作者原创或者翻译的文章所占博文比例。请尊重原创，大量转载其他网站资讯的网站和聚合类网站不做推荐。</p>
+<p>######中文博客</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>活跃度</th>
+<th>原创度</th>
+<th>维护者</th>
+<th>其他</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="http://www.w3cplus.com/">W3Cplus</a></td>
+<td>★★★★★</td>
+<td>★★★★★</td>
+<td>携程 @大漠</td>
+<td>国内最优秀的前端博客，原创居多</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://www.qianduan.net/">前端观察</a></td>
+<td>★★★★☆</td>
+<td>★★★★☆</td>
+<td>腾讯 ISUX @神飞</td>
+<td>曾经最优秀，最近更新不频繁了</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://www.alloyteam.com/">腾讯web前端 AlloyTeam 团队</a></td>
+<td>★★★★</td>
+<td>★★★★</td>
+<td><a target="_blank" rel="noopener" href="http://t.qq.com/AlloyTeam">@腾讯AlloyTeam</a></td>
+<td>来自于腾讯SNG(社交网络事业群)</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://www.zhangxinxu.com/wordpress/">张鑫旭-鑫空间-鑫生活</a></td>
+<td>★★★★☆</td>
+<td>★★★★★</td>
+<td>张鑫旭</td>
+<td>重构很厉害，不少经典文章经验</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://www.36ria.com/">ria之家</a></td>
+<td>★★★★☆</td>
+<td>★★★★☆</td>
+<td>淘宝 @明河</td>
+<td>#</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://www.daqianduan.com/">大前端</a></td>
+<td>★★★★☆</td>
+<td>★★★★☆</td>
+<td><a target="_blank" rel="noopener" href="http://www.cssforest.org/blog/index.php?s=about">#</a></td>
+<td>#</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://www.cssforest.org/blog/">CSS森林</a></td>
+<td>★★★★☆</td>
+<td>★★★★☆</td>
+<td><a target="_blank" rel="noopener" href="http://www.cssforest.org/blog/index.php?s=about">关于</a></td>
+<td>#</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://www.shejidaren.com/">设计达人</a></td>
+<td>★★★★☆</td>
+<td>★★★☆☆</td>
+<td><a target="_blank" rel="noopener" href="http://www.cssforest.org/blog/index.php?s=about">#</a></td>
+<td>更新较频繁，但转载也较多</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://beforweb.com/">Be For Web - 为网而生 - 原创译文博客</a></td>
+<td>★★★★☆</td>
+<td>★★★★☆</td>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/c7210">@C7210</a></td>
+<td>关注移动应用及互联网产品、用户体验设计、前端开发</td>
+</tr>
+</tbody></table>
+<p>######国外博客</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>活跃度</th>
+<th>原创度</th>
+<th>维护者</th>
+<th>其他</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="http://www.smashingmagazine.com/">Smashing Magazine</a></td>
+<td>★★★★★</td>
+<td>★★★★★</td>
+<td>#</td>
+<td>业界权威，web 设计很赞</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://hub.tutsplus.com/">Tuts</a></td>
+<td>★★★★★</td>
+<td>★★★★★</td>
+<td>-</td>
+<td>国外知名开发者网站</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://www.developerdrive.com/">DeveloperDrive</a></td>
+<td>★★★★★</td>
+<td>★★★★★</td>
+<td>-</td>
+<td>优质前端技术信息</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://css-tricks.com/">CSS-TRICKS</a></td>
+<td>★★★★★</td>
+<td>★★★★★</td>
+<td>Chris Coyier</td>
+<td>左边这位是大神</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://webdesignerwall.com/">Web Designer Wall</a></td>
+<td>★★★★★</td>
+<td>★★★★★</td>
+<td>Nick La.</td>
+<td>优质 Html5,CSS3等教程</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://tutorialzine.com/">Tutorialzine</a></td>
+<td>★★★★★</td>
+<td>★★★★★</td>
+<td>#</td>
+<td>大量 web 教程和资源</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://inspectelement.com/">Inspect Element</a></td>
+<td>★★★★★</td>
+<td>★★★★★</td>
+<td>#</td>
+<td>CSS,wordpress 相关教程挺多</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://tympanus.net/codrops/">Codrops</a></td>
+<td>★★★★★</td>
+<td>★★★★★</td>
+<td>#</td>
+<td>设计、交互、CSS</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://www.onerutter.com/">Jake Rutter</a></td>
+<td>★★★★★</td>
+<td>★★★★★</td>
+<td>Jake Rutter</td>
+<td>Jquery 作者，不解释了</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://www.paulirish.com/">Paul Irish</a></td>
+<td>★★★★★</td>
+<td>★★★★★</td>
+<td>Paul Irish</td>
+<td>大神,Google Chrome团队,Yeoman</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://krasimirtsonev.com/blog">Krasimir Tsonev</a></td>
+<td>★★★★★</td>
+<td>★★★★★</td>
+<td>Krasimir Tsonev</td>
+<td>html5,ccs3,javascript</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://hakim.se/">hakim</a></td>
+<td>★★★★★</td>
+<td>★★★★★</td>
+<td>HAKIM EL HATTAB</td>
+<td>ccs3,javascript</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://dailyjs.com/">DailyJS</a></td>
+<td>★★★★★</td>
+<td>★★★★★</td>
+<td>#</td>
+<td>javascript</td>
+</tr>
+</tbody></table>
+<p>#####活跃微博</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>公司</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/w3cchina">@w3c中国</a></td>
+<td>#</td>
+<td>万维网联盟中国办事处官方微博</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/javascriptdev">@TheFrontEnd</a></td>
+<td>#</td>
+<td>JavaScript技术资讯、新闻、教程、深度文章。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/fekb">@前端快爆</a></td>
+<td>阿里巴巴</td>
+<td>有HTML5、CSS3、JS</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://e.weibo.com/html5cn">@HTML5中国</a></td>
+<td>#</td>
+<td>中国<a target="_blank" rel="noopener" href="http://www.html5cn.org官方微博/">www.html5cn.org官方微博</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/developerworks">@developerWorks</a></td>
+<td>#</td>
+<td>#</td>
+</tr>
+</tbody></table>
+<p>####开发者博客</p>
+<p>微博微信流行后，明显感觉到写博客的人还是越来越少了，下面推荐的这些开发者属于在网上比较活跃的，或者博客积累了大量优质资源的。</p>
+<p>######国内开发者</p>
+<p>国内开发者一块欢迎大家 <code>Fork</code>提交推荐，最好能推荐一些在前端界较活跃的的开发者。</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>博客</th>
+<th>微博</th>
+<th>Github</th>
+<th>Twitter</th>
+<th>公司</th>
+<th>关键字</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>阮一峰</td>
+<td><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/">阮一峰博客</a></td>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/ruanyf">@ruanyf</a></td>
+<td>#</td>
+<td><a target="_blank" rel="noopener" href="https://twitter.com/ruanyf">@ruanyf</a></td>
+<td>上海金融学院国际金融学院</td>
+<td>教师，博客写作人，翻译人，《黑客与画家》的译者</td>
+</tr>
+<tr>
+<td>老赵</td>
+<td><a target="_blank" rel="noopener" href="http://blog.zhaojie.me/">http://blog.zhaojie.me/</a></td>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/jeffz">@老赵</a></td>
+<td>#</td>
+<td><a href="">#</a></td>
+<td>摩根大通（香港）</td>
+<td>资深码农</td>
+</tr>
+<tr>
+<td>玉伯</td>
+<td><a target="_blank" rel="noopener" href="http://lifesinger.wordpress.com/">岁月如歌</a></td>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/lifesinger">@玉伯也叫射雕</a></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/lifesinger">@lifesinger</a></td>
+<td><a target="_blank" rel="noopener" href="https://twitter.com/lifesinger">@lifesinger</a></td>
+<td>支付宝</td>
+<td>大牛</td>
+</tr>
+<tr>
+<td>kejun</td>
+<td><a target="_blank" rel="noopener" href="http://hikejun.com/">http://hikejun.com/</a></td>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/kejunz">@kejunz</a></td>
+<td>#</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/kejun">@kejunz</a></td>
+<td>豆瓣</td>
+<td>前端大神</td>
+</tr>
+<tr>
+<td>寒冬winter</td>
+<td><a target="_blank" rel="noopener" href="http://winter-cn.cnblogs.com/">winter-cn</a></td>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/wintercn">@寒冬winter</a></td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+</tr>
+<tr>
+<td>左耳朵耗子</td>
+<td><a target="_blank" rel="noopener" href="http://coolshell.cn/">酷壳</a></td>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/haoel">@左耳朵耗子</a></td>
+<td>#</td>
+<td><a target="_blank" rel="noopener" href="https://twitter.com/haoel">@haoel</a></td>
+<td>淘宝</td>
+<td>#</td>
+</tr>
+<tr>
+<td>fool2fish</td>
+<td>#</td>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/fool2fish">@fool2fish</a></td>
+<td>#</td>
+<td>#</td>
+<td>支付宝</td>
+<td>#</td>
+</tr>
+<tr>
+<td>朴灵</td>
+<td><a target="_blank" rel="noopener" href="http://html5ify.com/">Html5fiy</a></td>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/shyvo">@朴灵</a></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/JacksonTian">JacksonTian</a></td>
+<td>#</td>
+<td>阿里巴巴</td>
+<td>《深入浅出Node.js》作者,大牛</td>
+</tr>
+<tr>
+<td>Cat Chen</td>
+<td><a target="_blank" rel="noopener" href="http://catchen.biz/home.zh-CN.html">陈广琛</a></td>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/u/1640352230">@CatChen</a></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/CatChen">@CatChen</a></td>
+<td><a target="_blank" rel="noopener" href="https://twitter.com/CatChen">@CatChen</a></td>
+<td>Facebook</td>
+<td>大牛</td>
+</tr>
+<tr>
+<td>BYVod</td>
+<td><a target="_blank" rel="noopener" href="https://www.byvoid.com/">Beyond the Void</a></td>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/byvoid">@BYVoid</a></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/BYVoid">@byvoid</a></td>
+<td><a target="_blank" rel="noopener" href="https://twitter.com/byvoid">@BYVoid</a></td>
+<td>Facebook 英国</td>
+<td>《Node.js 开发指南》作者,大牛</td>
+</tr>
+<tr>
+<td>郭宇</td>
+<td><a target="_blank" rel="noopener" href="http://blog.guoyu.me/">Einmal ist keinmal</a></td>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/137601206">@郭宇</a></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/turingou">@turingou</a></td>
+<td><a target="_blank" rel="noopener" href="https://twitter.com/turingou">@turingou</a></td>
+<td>糗事百科,原支付宝</td>
+<td>Node.js</td>
+</tr>
+<tr>
+<td>勾三股四</td>
+<td>#</td>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/mx006">@勾三股四</a></td>
+<td>#</td>
+<td>#</td>
+<td>淘宝</td>
+<td>#</td>
+</tr>
+<tr>
+<td>cnberg</td>
+<td><a target="_blank" rel="noopener" href="http://cnberg.com/">冰山一角</a></td>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/berg">@berg</a></td>
+<td>@cnberg</td>
+<td><a href="">@cnberg</a></td>
+<td>百度</td>
+<td>骑行</td>
+</tr>
+<tr>
+<td>大猫</td>
+<td><a target="_blank" rel="noopener" href="http://bigc.at/">意淫笔记</a></td>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/daemao">@daemao</a></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/Damao">@Damao</a></td>
+<td><a target="_blank" rel="noopener" href="https://twitter.com/13igcat">@13igcat</a></td>
+<td>腾讯</td>
+<td><a target="_blank" rel="noopener" href="http://www.zhihu.com/people/13igcat">知乎</a></td>
+</tr>
+<tr>
+<td>hzlzh</td>
+<td><a target="_blank" rel="noopener" href="https://zlz.im/">自力博客</a></td>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/hzlzh">@hzlzh</a></td>
+<td><a target="_blank" rel="noopener" href="http://github.com/hzlzh">@hzlzh</a></td>
+<td><a target="_blank" rel="noopener" href="http://twitter.com/hzlzh">@hzlzh</a></td>
+<td>腾讯</td>
+<td>前端开发</td>
+</tr>
+<tr>
+<td>C7210</td>
+<td>beforweb.com&#x2F;</td>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/c7210">@C7210</a></td>
+<td><a target="_blank" rel="noopener" href="http://twittercom/hzlzh">@C7210</a></td>
+<td><a target="_blank" rel="noopener" href="http://github.com/hzlzh">@C7210</a></td>
+<td>#</td>
+<td>UX、交互设计师、视觉与前端</td>
+</tr>
+<tr>
+<td>kejun</td>
+<td><a target="_blank" rel="noopener" href="http://hikejun.com/">http://hikejun.com/</a></td>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/kejun">#</a></td>
+<td><a target="_blank" rel="noopener" href="http://twittercom/kejun">#</a></td>
+<td><a target="_blank" rel="noopener" href="http://github.com/hzlzh">#</a></td>
+<td>腾讯</td>
+<td>前端开发</td>
+</tr>
+<tr>
+<td>张鑫旭</td>
+<td><a target="_blank" rel="noopener" href="http://www.zhangxinxu.com/wordpress/">张鑫旭博客</a></td>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/zhangxinxu">@张鑫旭</a></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/zhangxinxu">@zhangxinxu</a></td>
+<td><a target="_blank" rel="noopener" href="https://twitter.com/zhangxinxu">@zhangxinxu</a></td>
+<td>腾讯 上海 ISUX</td>
+<td>前端开发</td>
+</tr>
+<tr>
+<td>lucifr</td>
+<td><a target="_blank" rel="noopener" href="http://lucifr.com/">http://lucifr.com/</a></td>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/lucifr">@lucifr</a></td>
+<td><a target="_blank" rel="noopener" href="http://twittercom/lucifr">@lucifr</a></td>
+<td><a target="_blank" rel="noopener" href="http://github.com/lucifr">@lucifr</a></td>
+<td>#</td>
+<td>Mac,ios</td>
+</tr>
+<tr>
+<td>smallni</td>
+<td><a target="_blank" rel="noopener" href="http://www.smallni.com/">http://www.smallni.com/</a></td>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/hzlzh">#</a></td>
+<td><a target="_blank" rel="noopener" href="https://twitter.com/smallniding/">@Smallni</a></td>
+<td><a target="_blank" rel="noopener" href="http://github.com/hzlzh">#</a></td>
+<td>腾讯</td>
+<td>前端开发</td>
+</tr>
+<tr>
+<td>TQ</td>
+<td><a target="_blank" rel="noopener" href="http://targetkiller.net/">http://targetkiller.net/</a></td>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/targetkiller">@Piser-TQ</a></td>
+<td><a target="_blank" rel="noopener" href="https://twitter.com/tqtan/">@tqtan</a></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/targetkiller">@targetkiller</a></td>
+<td>腾讯 ISUX</td>
+<td>网页重构</td>
+</tr>
+<tr>
+<td>LOO2K</td>
+<td><a target="_blank" rel="noopener" href="http://loo2k.com/blog/">LOO2K</a></td>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/loo2k">@LOO2K</a></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/loo2k">LOO2K</a></td>
+<td><a target="_blank" rel="noopener" href="https://twitter.com/loo2k/">LOO2K</a></td>
+<td>墨筹网</td>
+<td>少年才俊</td>
+</tr>
+<tr>
+<td>qiqiboy</td>
+<td><a target="_blank" rel="noopener" href="http://www.qiqiboy.com/">qiqiboy</a></td>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/qiqiboy">@qiqiboy</a></td>
+<td>#</td>
+<td>#</td>
+<td>金山网络 UX</td>
+<td>吐槽清理大师开发者</td>
+</tr>
+<tr>
+<td>foru17</td>
+<td><a target="_blank" rel="noopener" href="http://luolei.org/">罗磊的独立博客</a></td>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/foru17">@罗罗磊磊</a></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/foru17">@foru17</a></td>
+<td><a target="_blank" rel="noopener" href="https://twitter.com/foru17">@foru17</a></td>
+<td>金山网络 UX</td>
+<td>打酱油的</td>
+</tr>
+<tr>
+<td>余弦</td>
+<td><a target="_blank" rel="noopener" href="http://evilcos.me/">EVILCOS</a></td>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/evilcos">余弦</a></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/evilcos">evilcos</a></td>
+<td>#</td>
+<td><a target="_blank" rel="noopener" href="http://www.knownsec.com/">知道创宇</a></td>
+<td>安全（黑客）、架构、团队的各种观点与分享</td>
+</tr>
+<tr>
+<td>汤姆大叔</td>
+<td><a target="_blank" rel="noopener" href="http://www.cnblogs.com/TomXu/">汤姆大叔的博客</a></td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>《深入理解Bootstrap》、《JavaScript启示录》、《JavaScript设计模式》等多本前端书籍翻译作者</td>
+</tr>
+</tbody></table>
+<p>####一些社区</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>地址</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>V2EX</td>
+<td><a target="_blank" rel="noopener" href="http://v2ex.com/">http://v2ex.com/</a></td>
+<td>小众活跃社区</td>
+</tr>
+<tr>
+<td>Ruby</td>
+<td><a target="_blank" rel="noopener" href="http://ruby-china.org/">http://ruby-china.org/</a></td>
+<td>同 V2EX 氛围类似，不局限于Ruby</td>
+</tr>
+<tr>
+<td>Node.js 中文社区</td>
+<td><a target="_blank" rel="noopener" href="http://cnodejs.org/">http://cnodejs.org/</a></td>
+<td>Node.js 国内最活跃的社区</td>
+</tr>
+<tr>
+<td>Code Wall</td>
+<td><a target="_blank" rel="noopener" href="https://coderwall.com/">https://coderwall.com/</a></td>
+<td>国外技术社区</td>
+</tr>
+<tr>
+<td>前端乱炖</td>
+<td><a target="_blank" rel="noopener" href="http://www.html-js.com/">http://www.html-js.com/</a></td>
+<td>国内前端技术社区</td>
+</tr>
+<tr>
+<td>DIV.IO</td>
+<td><a target="_blank" rel="noopener" href="http://div.io/">http://div.io/</a></td>
+<td>国内前端技术社区</td>
+</tr>
+</tbody></table>
+<p>#####企业官方博客</p>
+<p>在开头我的 Feedly 订阅 opml 文件里比较全面。</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>公司</th>
+<th>部门</th>
+<th>活跃度</th>
+<th>简介</th>
+<th>微博</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="http://isux.tencent.com/">ISUX 社交用户体验设计</a></td>
+<td>腾讯</td>
+<td>ISUX</td>
+<td>★★★★☆</td>
+<td>负责腾讯的社交网络相关产品的用户体验设计与研究。</td>
+<td>#</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://cdc.tencent.com/">腾讯 CDC</a></td>
+<td>腾讯</td>
+<td>CDC</td>
+<td>★★★★☆</td>
+<td>简介</td>
+<td>#</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://www.alloyteam.com/">腾讯Web前端 Alloy 团队 Blog</a></td>
+<td>腾讯</td>
+<td>SNG</td>
+<td>★★★★☆</td>
+<td>主要负责手机QQ、QQ互联、腾讯Q+、WebQQ项目的团队。</td>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/alloyteam">alloyteam</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://tid.tenpay.com/">TID-财付通设计中心</a></td>
+<td>腾讯</td>
+<td>TID</td>
+<td>★★★★☆</td>
+<td>简介</td>
+<td>#</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://mxd.tencent.com/">腾讯MXD移动互联网设计中心</a></td>
+<td>腾讯</td>
+<td>MXD</td>
+<td>★★★★☆</td>
+<td>简介</td>
+<td><a target="_blank" rel="noopener" href="http://e.t.qq.com/tencent_mxd">@腾讯MXD</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://tid.tenpay.com/">人人网FED Team</a></td>
+<td>人人网</td>
+<td>FED</td>
+<td>★★★★☆</td>
+<td>简介</td>
+<td>#</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://udc.weibo.com/">微博UDC</a></td>
+<td>新浪</td>
+<td>UDC</td>
+<td>★★★★☆</td>
+<td>简介</td>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/sudc">@微博UDC设计中心</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://ued.sina.com.cn/">新浪UED</a></td>
+<td>新浪</td>
+<td>UED</td>
+<td>★★★★☆</td>
+<td>简介</td>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/sudc">#</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://uedc.163.com/">网易用户体验设计中心</a></td>
+<td>网易</td>
+<td>UED</td>
+<td>★★★★☆</td>
+<td>简介</td>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/sudc">#</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://www.aliued.cn/">阿里巴巴（中国站）用户体验设计部博客</a></td>
+<td>阿里巴巴</td>
+<td>UED</td>
+<td>★★★★☆</td>
+<td>简介</td>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/aliued">@Alibaba-UED</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://ued.taobao.org/blog/">淘宝UED</a></td>
+<td>淘宝网</td>
+<td>UED</td>
+<td>★★★★☆</td>
+<td>用户体验、交互设计、视觉设计、前端技术博客</td>
+<td><a target="_blank" rel="noopener" href="http://weibo.com/taobaoued">@淘宝UED</a></td>
+</tr>
+</tbody></table>
+<p>##书籍</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>作者</th>
+<th>价格</th>
+<th>出版社</th>
+<th>简评</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="http://book.douban.com/subject/3327829/">Web标准设计</a></td>
+<td>刘杰（嗷嗷）</td>
+<td>RMB 60.00</td>
+<td>清华大学出版社</td>
+<td>基础入门</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://book.douban.com/subject/4914146/">大巧不工 : Web前端设计修炼之道</a></td>
+<td>赖定清 &#x2F; 林坚</td>
+<td>RMB 59.00</td>
+<td>机械工业出版社</td>
+<td>适合入门，了解前端全局</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://book.douban.com/subject/3132277/">高性能网站建设指南:前端工程师技能精髓</a></td>
+<td>Steve Souders</td>
+<td>RMB 35.00</td>
+<td>电子工业出版社</td>
+<td>能从原理层理解各种方法</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://book.douban.com/subject/4719162/">高性能网站建设指南:Web开发者性能优化最佳实践</a></td>
+<td>Steve Souders</td>
+<td>RMB 49.80</td>
+<td>电子工业出版社</td>
+<td>#</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://book.douban.com/subject/4124141/">Web站点优化 : Web站点优化</a></td>
+<td>金</td>
+<td>RMB 55.00</td>
+<td>#</td>
+<td>#</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://book.douban.com/subject/10789820/">Node.js开发指南</a></td>
+<td>郭家寶</td>
+<td>RMB 45.00</td>
+<td>#</td>
+<td>作者很牛</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://book.douban.com/subject/10546125/">JavaScript高级程序设计</a></td>
+<td>Nicholas C. Zakas</td>
+<td>RMB 99.00</td>
+<td>人民邮电出版社</td>
+<td>适合没事就翻翻</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://book.douban.com/subject/2228378/">JavaScript权威指南</a></td>
+<td>弗拉纳根</td>
+<td>RMB 109.00</td>
+<td>机械工业出版社</td>
+<td>犀牛书</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://book.douban.com/subject/6038371/">JavaScript DOM编程艺术</a></td>
+<td>Jeremy Keith &#x2F;Jeffrey Sambells</td>
+<td>RMB 49.00</td>
+<td>人民邮电出版社</td>
+<td>适合Javascript入门看</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://book.douban.com/subject/25768396/">深入浅出node.js</a></td>
+<td>朴灵</td>
+<td>RMB 69.00</td>
+<td>人民邮电出版社</td>
+<td>一本从前端通往全端的好书</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://book.douban.com/subject/3137282/">CSS开发王</a></td>
+<td>张亚飞</td>
+<td>RMB 49.00</td>
+<td>电子工业出版社</td>
+<td>适合有一定基础后CSS进阶用</td>
+</tr>
+<tr>
+<td>####线上的一些翻译版好书</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>书名</th>
+<th>地址</th>
+<th>作者</th>
+<th>译者</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>JavaScript秘密花园</td>
+<td><a target="_blank" rel="noopener" href="http://bonsaiden.github.io/JavaScript-Garden/zh/">http://bonsaiden.github.io/JavaScript-Garden/zh/</a></td>
+<td>伊沃·韦特泽尔&amp;张易江</td>
+<td><a target="_blank" rel="noopener" href="http://sanshi.me/">三生石上</a></td>
+<td>完整书籍，界面美观，有详细demo</td>
+</tr>
+<tr>
+<td>Material Design 中文版</td>
+<td><a target="_blank" rel="noopener" href="http://design.1sters.com/">http://design.1sters.com/</a></td>
+<td>Google设计手册</td>
+<td>协同翻译</td>
+<td>Google I&#x2F;O 2014 发布的 Material Design 官方手册的中文翻译</td>
+</tr>
+</tbody></table>
+<h1 id="关于"><a href="#关于" class="headerlink" title="##关于"></a>##关于</h1><p>本 repo 会 不断更新，感谢推荐和分享新资源的朋友。</p>
+
+                
+              </div>
+            
+            <hr/>
+
+
+            <!-- 添加打赏模块 -->
+            <div class="reward-container">
+              
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0/" class="category-chain-item">前端笔记</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0/" class="print-no-link">#前端笔记</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>前端收集</div>
+      <div>http://example.com/2025/01/07/前端笔记/HTML/html00/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Helios</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年1月7日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/01/07/%E6%B5%8B%E8%AF%95%E7%AC%94%E8%AE%B0/selenium/selenium04/" title="Selenium的CSS层叠样式表选择器（二）">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Selenium的CSS层叠样式表选择器（二）</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/12/15/%E6%B5%8B%E8%AF%95%E7%AC%94%E8%AE%B0/selenium/selenium00/" title="初识Selenium和设置被测系统">
+                        <span class="hidden-mobile">初识Selenium和设置被测系统</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+  <script  src="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script type="text/javascript">
+  /* Fancybox */
+  var setupFancybox = function () {
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(function() {
+    var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      $(this).wrap(element);
+    });
+  };
+  setupFancybox();
+  </script>
+
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+      <div class="col-lg-7 mx-auto nopadding-x-md">
+        <div class="container custom mx-auto">
+           <!-- require APlayer --> <!--<link rel="stylesheet" href="/js/customize/aplayer/APlayer.min.css">--> <!--<div id="aplayer"></div>--> <!--<script type="text/javascript" src="/js/customize/aplayer/APlayer.min.js"></script>--> <!--<script type="text/javascript" src="/js/customize/aplayer/music.js"></script>--> <!-- require MetingJS --> <!--<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>--> <!--<meting-js--> <!--  auto="https://y.qq.com/n/yqq/song/001RGrEX3ija5X.html">  --> <!--server = "netease"--> <!--type = "playlist"--> <!--id = "5349753401">--> <!--</meting-js>--> 
+        </div>
+      </div>
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Helios</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/customize/custom.js"></script> </div> 
+    </div>
+  
+  
+    
+<div class="statistics">
+  
+  
+   
+</div>
+  <div class="statistics">
+    <a target="_blank" rel="noopener" href="https://developer.hitokoto.cn/" id="hitokoto_text"><span style="color: #DDD;"  id="hitokoto"></span></a>
+    <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+  </div>
+  
+  
+  
+</div>
+
+<!-- 页脚繁体简体切换 -->
+<div class="translate-style">
+  繁/简：<a id="translateLink" href="javascript:translatePage();">繁体
+  </a>
+  </div>
+  <script type="text/javascript" src="/js/tw_cn.js"></script>
+  <script type="text/javascript">
+  var defaultEncoding = 2; //网站编写字体是否繁体，1-繁体，2-简体
+  var translateDelay = 0; //延迟时间,若不在前, 要设定延迟翻译时间, 如100表示100ms,默认为0
+  var cookieDomain = "https://1han.wiki/"; //Cookie地址, 一定要设定, 通常为你的网址
+  var msgToTraditionalChinese = "繁体"; //此处可以更改为你想要显示的文字
+  var msgToSimplifiedChinese = "简体"; //同上，但两处均不建议更改
+  var translateButtonId = "translateLink"; //默认互换id
+  translateInitilization();
+  </script>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  
+<script src="/js/custom.js"></script>
+<script src="/scripts/ingect.js"></script>
+<script src="/js/right_menu.js"></script>
+<script src="/js/loading.js"></script>
+<script src="/js/customize/code/prism.js"></script>
+<script src="/js/customize/xiantiao.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/runtime.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/Cherry.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/star.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/love.min.js"></script>
+<script src="/js/customize/aplayer/APlayer.min.js"></script>
+<script src="/js/customize/Meting.js"></script>
+<script src="/js/customize/music.js"></script>
+<script src="//cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  <div id="tooltip-rightmenu" class="tooltip-rightmenu">如需原始右键菜单请按下 <strong>Ctrl+右键</strong></div>
+
+<div id="rightmenu-wrapper" style="display: block;">
+  <ul class="list-v rightmenu" id="rightmenu-content">
+	  <li class="navigation menuNavigation-Content">
+		<a class="nav icon-only fix-cursor-default" onclick="history.back()"><i class="iconfont icon-zuojiantou1"></i></a>
+		<a class="nav icon-only fix-cursor-default" onclick="history.forward()"><i class="iconfont icon-youjiantou1"></i></a>
+		<a class="nav icon-only fix-cursor-default" onclick="window.location.reload()"><i class="iconfont icon-shuaxin"></i></a>
+		<a  aria-label="TOP" href="#" role="button"><i class="iconfont icon-xiangshang"></i></a>
+	  </li>
+
+		<hr class="menuLoad-Content" style="display: block;">
+	  <li class="menuLoad-Content" style="display: block;">
+		<a class="vlts-menu fix-cursor-default" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+		  <span>
+			  <i class="iconfont icon-sousuo1 rightmenu-icon"></i>
+			  站内搜索
+		  </span>
+		</a>
+	  </li>
+
+	  <li class="menuLoad-Content" style="display: block;">
+		<a class="vlts-menu fix-cursor-default"  target="_blank" rel="noopener" href="https://www.zywvvd.com/messagebd/" data-group="link">
+		  <span>
+			  <i class="iconfont icon-yangshi_icon_tongyong_chat rightmenu-icon">  </i>
+			   留言吐槽 
+		   </span>
+		</a>
+	  </li>
+
+
+	  <li class="menuLoad-Content" style="display: block;">
+		<a class="vlts-menu fix-cursor-default" id="help" target="_blank" rel="noopener" href="https://www.foreverblog.cn/go.html" data-group="link">
+		<span>
+			  <i class="iconfont icon-a-BlackHole rightmenu-icon"></i>
+			  虫洞穿梭
+		  </span>
+		</a>
+	  </li>
+
+	<a id="scroll-top-button" aria-label="TOP" href="#" role="button" style="bottom: 20px; right: 52.6364px;">
+        <i class="iconfont icon-xiangshangjiantou" aria-hidden="true"></i>
+      </a>
+
+	<hr class="menuLoad-Content" style="display: block;">
+	
+
+  </ul>
+</div>
+
+<link href="/css/custom.css"type="text/css"rel="stylesheet"/>
+<script src="/vvd_js/right_menu.js" type="text/javascript"></script>
+<link href="/css/right_menu.css"type="text/css"rel="stylesheet"/>
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start --><script src="/js/customize/postshixiaoxing.js"></script><script src="/js/customize/zdy.js"></script>
+  <div id="aplayer"></div>
+  <link defer rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css" />
+  <script src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js"></script>
+  <script defer src="/js/aplayer.js"></script>
+<script src="/js/customize/backgroundize.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
